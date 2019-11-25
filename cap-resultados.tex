@@ -1,0 +1,45 @@
+\chapter{Dos Resultados Obtidos}
+\label{cap:results}
+\minitoc
+
+\intro{Neste capítulo serão mostrados os resultados deste trabalho. Mas como fazer isso se capturas de tela
+não são capazes de mostrar a aplicação funcionando ao vivo? A ideia é ilustrar as funcionalidades principais
+enquanto o link da aplicação em produção ficará diponível aqui.
+
+Outro ponto importante a mostrar aqui é a cobertura de testes. A cobertura do frot não será tão extensiva
+quanto a do back, mas ao comparar com o que se tinha no começo do ano, é infinitamente maior. }
+
+\section{O que foi feito?}
+\label{sec:to-be-done}
+
+\subsection{API Rails}\label{subsec:api-rails}
+
+\subsection{Interface}\label{subsec:interface}
+
+\subsection{O moedor}\label{subsec:o-moedor}
+
+Como foi dito na sessão \ref{sec:proposta}, o moedor é um punhado gigantesco de código com uma necessidade enorme de
+ser fefatorado. Não porque é ruim ou está incorreto, mas por estar extremamente confuso, com as responsabilidades
+misturadas, funções enormes\footnote{Sendo a maior a \texttt{processa\_contextos} com exatas 962 linhas à época da
+contagem}. A função \texttt{initialize} também precisam de modificações, mas fica para a list de refatorações a fazer.
+
+A ideia é mover para os \emph{helpers} tudo exceto pela função de inicialização e de leitura. O que for para os helpers,
+será testado.
+
+\subsection{Vendo as coisas funcionar}
+\label{subsec:ver-funcionando}
+
+Link da aplicação em produção
+
+\subsection{Testes e cobertura}
+\label{subsec:testes-cobertura}
+
+\section{O que será feito?}
+\label{sec:what-will-be-done}
+
+
+\subsection{Refatorações}\label{subsec:refatoracoes}
+
+% modeor -- RR
+% formularios -- N
+% botões -- N

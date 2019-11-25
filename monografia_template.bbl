@@ -1,0 +1,69 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Jes()]{Jest}{\bf Jes()}
+\emph{Jest Homepage}.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[MN2(2015)]{MN2}{\bf MN2(2015)}
+\emph{Manual do NEHiLP}.
+\newblock 2.1 edi\c{c}\~{a}o.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Nux()]{Nuxt}{\bf Nux()}
+\emph{Nuxt.JS Guide}.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[RoR()]{RoR}{\bf RoR()}
+\emph{Ruby on Rails Guides}.
+\newblock versão 6.0.0.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Vue()]{Vue}{\bf Vue()}
+\emph{Vue.JS}.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Carlson e Richardson(2009)]{Rcook:09}{\bf Carlson e Richardson(2009)}
+Lucas Carlson e Leonard Richardson.
+\newblock \emph{Ruby Cookbook}.
+\newblock O'Reilly Media, 1ª edi\c{c}\~{a}o.   {\scriptsize Citado na
+  p\'{a}g.}
+
+\bibitem[Lukaszuk(2018)]{CCL}{\bf Lukaszuk(2018)}
+Wojtek Lukaszuk.
+\newblock Clean code.
+\newblock
+  \url{https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29},
+  2018.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Salviano(2014)]{Bar:14}{\bf Salviano(2014)}
+Barbara~Neves Salviano.
+\newblock O uso do dicionário de língua como instrumento didático no ensino
+  de língua portuguesa para alunos surdos: em busca de um bilinguismo
+  funcional.
+\newblock \emph{\url{http://hdl.handle.net/1843/MGSS-9LZNZ9}}.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Santin {\rm{\em et~al.}}(2018)Santin, Galati, e Cardoso]{delpo:18}{\bf
+  Santin {\rm{\em et~al.}}(2018)}
+Adriano Tetsuaki~Ogawa Santin, Luiz Fernando~Antonelli Galati e Mauricio
+  Luiz~Abreu Cardoso.
+\newblock \emph{Refatoração do Projeto Delpo}.
+\newblock IME-USP.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Schmitz(2019)]{BP}{\bf Schmitz(2019)}
+Daniel Schmitz.
+\newblock Boas práticas.
+\newblock
+  \url{https://gist.github.com/danielschmitz/95c6eb40a3845f89498a3c748e932f44},
+  2019.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Viaro(2017)]{Mar:17}{\bf Viaro(2017)}
+Mário~Eduardo Viaro.
+\newblock O dicionário etimológico da língua portuguesa (delpo): conceitos
+  de metalema, hemilema, hiperlema e ultralema.
+\newblock
+  \url{http://siba-ese.unisalento.it/index.php/dvaf/article/view/17775/15134},
+  2017.
+\newblock Visitado a 9/10/2019.   {\scriptsize Citado na p\'{a}g.}
+
+\end{thebibliography}

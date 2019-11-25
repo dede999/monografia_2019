@@ -1,0 +1,159 @@
+\chapter{Da Introdução} \label{cap:introducao}
+\minitoc \mtcskip
+
+\intro{Segundo o \citetalias[p.15]{MN2}, o idioma português é aquele com menor quantidade
+de informação etimológica disponível se comparado com outros idiomas românicos. Com
+vistas a minorar esse problema, alguns projetos de pesquisa visam métodos de otimizar a
+obtenção de registros. O projeto DELPo é um ótimo exemplo. Através de um algoritmo
+\textit{modeor} que recebe um arquivo, registram-se ocorrências, lemas e flexões que
+auxiliam a monitorar que elementos são mais recentes. Este fluxo mimetiza o algoritmo que
+se aplica a cartões físicos.
+
+O projeto já conta com um portal web em produção. Este trabalho, entretanto, era feito em PHP,
+e havia alguns gargalos na aplicação. Alguns foram removidos ano passado, outros estão sendo
+estirpados agora. Além disso, cada parte da implemetação agora está sendo feita com as ferramentas
+que o aluno julga mais apropriadas. Por exemplo, a parte do projeto implementada em Rails (Ruby on
+Rails) é o \say{backend} enquanto as visualizações são feitas em \citetalias{Nuxt}}
+
+\section{Uma observação Importante} \label{sec:importante}
+
+Por se tratar da continuação do trabalho de \citet*{delpo:18}, muitas coisas foram
+extraídas do trabalho deles. Muitas citações e paráfrases estarão presentes neste
+trabalho, principalmente quando se trata dos conceitos relacionados à parte do
+cliente. Isso se deve pelo fato óbvio do trabalho ser quase o mesmo, com poucas
+diferenças (a proposta é muito semelhante, mas o cliente e a aplicação são os mesmos).
+Desta forma, não há motivo razoável para que não se mantenha muito do que foi feito.
+
+\section{Objetivos Específicos}
+\label{sec:goals}
+
+Aqui tratar-se-á de todos os objetivos de forma específica e como pretendo cumpri-los.
+
+\textbf{Gerar um sistema eficiente}. Trata-se de uma parte muito importante deste trabalho.
+Dado que no sistema legado (em PHP) observavam-se alguns gargalos de desempenho, e que estes
+comprometiam a utilização por parte de pesquisadores, este trabalho propõe-se a eliminar, ou
+reduzí-los de maneira a facilitar a vida dos entusiastas e estudiosos da área.
+
+Além da motivação nobre de ajudar, não se pode ignorar o impacto de um grande trabalho como
+este terá no currículum do aluno em questão. Um trabalho bem feito abrirá portas para grandes
+oportunidades que aparecerão dado que quem faz um excelente serviço poderá fazer muitos outros.
+Do contrário, um serviço mal feito, um software de qualidade duvidosa não vai abrir portas ao
+aluno, que nem se daria ao trabalho de mostrar algo mal-feito.
+
+\textbf{Verificar a importância real de um código limpo.} Ao início da graduação, o aluno incauto
+pode fazer uma vaga ideia, mas jamais entenderá a importância de fazer um código legível
+\footnote{Salvo o caso desse aluno já tiver alguma experiência com programação}. Isso muda quando
+o aluno têm contato com um código ilegível. A dificuldade em refatorar o código, entender o que se
+deseja, ou até mesmo a necessidade de refazer grandes partes daquele programa será traumática o
+bastante para que o aluno passe a se preocupar com o que ele faz.
+
+Mas o que é um código de limpo? Segundo \citeauthor{CCL}, é um código que pode ser lido, compreendido,
+melhorado, extendido e mantido por qualquer outro desenvolvedor.
+
+Ele fez um trabalho importantíssimo ao juntar vários preceitos em um só documento. Um grande punhado
+de convenções (ou conselhos, se preferir) para quem deseja fazer um código excelente. Por se tratar de
+mais de 50 \say{leis}, é um tanto trabalhoso que sigam-se todos eles, mas com certeza se trata de um bom
+ponto de partida.
+
+Na sessão \ref{sec:boas-praticas} econtram-se algumas diretrizes da produção de bom código.
+
+\section{Sobre a proposta} \label{sec:proposta}
+
+Vale saber, além dos objetivos supra citados, qual é a proposta geral desse trabalho.
+\begin{itemize}
+    \item continuação do trabalho de criar uma aplicação em Rails\footnote{vide p.\pageref{subsec:rails}}
+    da API usada no novo portal do DELPO. Inclui cobertura extensiva de testes de unidade.
+    \item retoque no banco de dados da aplição e articulação das entidades usando PostgreSQL
+    \item modificação do modelo de autenticação de usários e implementação de níveis de permissão compatível
+    com o que o \citetalias{MN2} determina
+    \item melhoramento do sistema moedor \footnote{vide p.\pageref{subsec:moagem}}
+    \item Permitir que a plataforma esteja disponível para uso da melhor forma possível. Ainda que isso
+    implique que algumas refatorações e melhorias ficarem de lado.
+\end{itemize}
+
+O moedor que há na aplicação atual é enorme e exige grande refatoração. Entretanto, como a bagunça é grande,
+(diferente do prazo) o que será feito são alguma melhorias em alguns métodos, remoção dos desnecessários, e
+por aí vai. A ideia é que, na medida do possível, as funções fiquem mais fáceis de entender, e o código ganhe
+em inteligibilidade. O moedor tem dois módulos: o de leitura e o de análise.
+
+O primeiro trata de quebrar o texto em contextos (orações) e palavras. Cada quais destas é analisada com o
+objetivo de encontrar sua forma básica\footnote{por exemplo, abrindo \dir abrir}, procurar se ela existe no
+banco, bem como datar e retrodatar de acordo com o que for necessário. Os resultados obtidos são armazenados
+em uma tabela de mesmo nome.
+
+O segundo começa a partir do ponto em que a leitura termina. Este módulo depende da interação do pesquisador
+que faz as partes da tarefas que a máquina não é capaz de fazer. Este módulo toma os resultados obtidos no
+módulo acima, e os apresenta ao pesquisador da forma como será mencionada na sub-seção \ref{subsec:nehilp-delpo}
+na descrição do programa moedor. Resumidamente, uma palavra contida na obra pode ser marcada em azul (se ainda
+não estiver no banco de dados) ou em vermelho (caso já exista no banco de dados e esteja associada a uma data
+\emph{maior}\footnote{vide sub-seção \ref{subsec:moagem} para mais detalhes} que a do texto analizado)
+
+\section{Metodologia}
+\label{sec:methodology}
+
+A metodologia seguida nesse trabalho consiste de alguns passos:
+\begin{enumerate}
+    \item Conhecer o projeto a fundo.
+    \item Compreender o código.
+    \item Entender os relacionamentos entre as entidades do banco de dados
+    \item Realizar as mudanças necessárias (enquanto faz os testes)
+    \item Fazer a interface visual do sistema
+    \item Se possível, criar uma documentação suficiente para a compreensão e
+    utilização dessa ferramenta
+\end{enumerate}
+
+O passo 1 é o mais básico de todos e consistiu de uma conversa inicial com o professor Mário,
+<<dizer o que ele é do projeto>> do projeto DELPo. O professor Gubi também me ajudou a entender
+alguns aspectos importantes do assunto. Entretanto, o \citetalias{MN2} e o artigo de \cite{Mar:17}
+foram de grande ajuda para entender a diferença entre os lemas, e tornaram-se poderosas fontes
+de consulta.
+
+O passo seguinte foi o maior desafio, dado que eu só tenho contato regular com um dos membros
+do antigo grupo de trabalho. Isso tornou-se uma dificuldade tamanha e me gerou um grande bloqueio
+que me levou a reorganizar as entidades do banco de dados. Ainda que seja notável que a equipe
+anterior tem um bom domínio de ferramentas SQL, percebe-se que não se utilizaram plenamente da
+interface provida pelo Rails para poder implementar melhor os modelos. Além disso, o algoritmo
+do moedor ainda é um pesadelo para quem se aventura a refatorá-lo.
+
+O passo 3 também exigiu um bom tempo. Inicialmente tentou-se fazer menores alterações e manter
+o código. Isso seria muito menos trabalhoso, e demandaria menos tempo também. O que se observou,
+entretanto é que fazer mudanças específicas não era tão simples quanto parecia, ou quanto de fato
+seria se estivesse com um dos membros da antiga equipe consigo. Dessa forma, decidiu-se refazer as
+tabelas com bas nas que já tinham sido feitas. Enquanto os modelos ficavam prontos e se conectavam,
+os testes cobriam se as determinações e os relacionamentos foram realmente estabelecidos.
+
+Além das mudanças supracitadas, o passo 4 engloba as mudanças nos controladores e a criação de métodos
+auxiliares (\emph{helpers}). Esses métodos, inseridos em módulos independentes, garantem um código bem
+compartimentado, conciso e não repetitivo.
+
+O maior desafio foi refatorar o moedor. Os principais problemas com o código são nomes de métodos que
+não descrevem o que ele faz, métodos desnecessários (como o que declara um hash que poderia ser uma
+constante dentro do módulo), e a funação principal do módulo com mais de mil linhas e com muitas
+atribuições desconhecidas.
+
+A parte 5 está em desenvolvimento neste exato momento e conta com o auxílio da professora (?) Vanessa,
+também integrante do NEHiLP. Nos capítulos que se seguem, falar-se-á sobre as ferramentas usadas.
+Aqui basta dizer que o objetivo principal é proporcionar uma boa experiência ao usuário.
+
+\section{Descrição dos capítulos}
+\label{sec:description}
+
+O capítulo 2, \textbf{dos conceitos principais} funciona como um cabeçalho de um
+programa. Isso pois, nessa parte do código é onde ficam os comandos de
+importação de bibliotecas.
+
+Analogamente, no próximo capítulo, tratar-se-ão de conceitos relativos ao
+material a ser implementado, e do jargão a ser utilizado. Detalhes a serem
+esclarecidos para que o cérebro do leitor "compile" (em outras palavras,
+que ele compreenda) o conteúdo das páginas que se seguirão.
+
+No capítulo 3, \textbf{sobre o desenvolvimento}, tratar-se-ão de detalhes técnicos sobre a
+implementação. Será uma descrição a dois níveis, sendo a primeira, uma descrição
+verbal, e o seguinte, a nível de implementação.
+
+No capítulo 4, \textbf{dos resultados obtidos}, encontra-se uma reflexão sobre o
+que se passou além do código, o que está pronto e o que pode ser feito no futuro.
+
+O último capítulo, \textbf{das conclusões finais}, faz-se um resumo do que está
+documentado, destacando o que for mais conveniente.
+
