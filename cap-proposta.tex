@@ -235,5 +235,73 @@ atrasos, decidi criar múltiplos componentes. Passado o prazo do TCC, é uma coi
 De fato. Em diversos momentos do desenvolvimento foi dito que repetir código era uma má prática, e não deixou de ser. O
 problema, entretanto, foi conciliar a vontade de fazer a melhor aplicação, com o melhor cógigo, o mais limpo possível,
 com a necessidade do DELPo de estar de pé. Não posso faltar com o respeito com os integrantes do NEHiLP, e entregar algo
-que não funcione, mas também não posso escrever um código porco que a curto prazo nenhuma viva alma seria capaz de compreender.
-Provavelmente é uma das coisas em que mais preciso amadurecer, e pude aprender um pouco mais com esse projeto.
+que não funcione, mas também não posso escrever um código porco que a curto prazo nenhuma viva alma seria capaz de
+compreender. Provavelmente é uma das coisas em que mais preciso amadurecer, e pude aprender um pouco mais com esse projeto.
+
+\subsection{Por que não há testes feitos para o front end?}\label{subsec:no-tests-for-nuxt}
+
+O motivo principal para não haver testes para o front é que o planejamento inicial previa aproveitar o conteúdo do curso
+\href{https://vueschool.io/courses/learn-how-to-test-vuejs-components}{\say{Testing Vue.js Components}} fazendo os testes
+para a aplicação do front. Como eu desconheço quaisquer outras ferramentas de teste para Javascript, e o Jest é muito
+parecido com o RSpec, e eu tinha um curso bem estruturado (os cursos desta plataforma são muito bons), decidi optar por
+ela, memso correndo o risco de ficar sem esses testes de front.
+
+\section{A aplicação está pronta? Como isso impacta os resultados esperados?}
+\label{sec:is-it-ready}
+
+Não. A aplicação não está completa em nenhum dos dois lados. Ela está funcional, mas falta juntar essas peças que foram
+verificadas.
+
+No back end, tudo o que estava funcionando  na versão anterior, continua funcionando nesta também. A diferença é a
+qualidade do código, e algumas otimizações, sem contar na melhor organização do projeto. Aliás, adiantando uma das
+reflexões na sessão \ref{sec:lessions}, aprendi um pouco com esse projeto como balancear o ímpeto de fazer um código
+seguindo design patterns e um código que fique pronto em tempo hábil. Houveram múltiplas ocasiões em que se perderam dias,
+semanas ou ainda mais tempo pensando em como fazer determinada funcionalidade da melhor forma ao invés de simplesmente
+fazer acontecer.
+
+Se por um lado, o desenvolvimento ocorreu num ritmo reduzido, por outro, o código resultante apresenta uma qualidade
+formidável:
+\begin{itemize}
+    \item grande encapsulamento entre classes
+    \item pouquíssimo código repetido (concentrados na parte do front e nos testes do Rails)
+    \item extensa cobertura de testes (não tive tempo de testar os componentes do front)
+    \item as dependências entre componentes não engessam a aplicação
+\end{itemize}
+
+Obviamente trata-se de uma escolha entre qualidade e agilidade; qualidade versus quantidade. Optou-se pela primeira em
+nome do comprometimento com o cliente que apresenta uma grande necessidade de ver sua aplicação a funcionar sem maiores
+problemas como acontece atualmente.
+
+Outra coisa a se observar quanto ao desenvolvimento Rails é observar que nada se perdeu apesar da grande reconstrução
+feita. O controlador do moedor ainda não foi implementado ainda, mas todo o arcabouço funcional por trás disso está.
+Como verificar isso? Simples. Tudo funcionava antes da grande refatoração, então basta levar em conta o que se passa com
+cada parte do código. O que foi modificado agora funciona sem sombra de dúvida, e da mesma maneira (dado que o que foi
+mudado foi a forma de fazer o código e não o que este fazia). O que não foi alterado ainda se encaixa com o resto do
+código pois nada foi modificado ali em termos de funcionamento.
+
+Um grande avanço observado foi na interface. Ela estava muito crua no início do ano, e agora ela apresenta um grande
+dinamismo. Ainda que o seu desenvolvimento esteja na fase de construção do sistema de admissibilidade de usuários, e da
+gestão de tokens, e pareça \say{cru}, é claro que não há muito o que deixar para o próximo desenvolvedor\footnote{Ainda
+que eu pretenda continuar a fazer o projeto mesmo depois de concluido o TCC.}.
+
+Respondendo a última parte da pergunta, com certeza não vou receber um 10 por este trabalho. No entanto, se se levar
+em conta o balanço do que foi feito e do que não foi, perceber-se-á que o saldo foi extremamente positivo. Veja abaixo.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multicolumn{3}{|c|}{Atividades} \\ \hline\hline
+        Concluidas & Não Concluídas & Não iniciadas \\ \hline
+        Refatorar o banco dedados & Fazer um interface de  & Adaptação dos dados \\
+        & usuário agradável (60\%) & da aplicação antiga \\ \hline
+        Refatoração dos modelos  & Fazer os testes no back (73\%) & Fazer os testes do front \\
+        e controladores & & \\ \hline
+        Modularização das classes  & & \\
+        e interfaces  & & \\ \hline\hline
+        \multicolumn{3}{|c|}{\textbf{Observações}} \\ \hline
+        \multicolumn{3}{|c|}{As porcentagens na coluna do meio são uma estimativa do grau de conclusão da tarefa} \\ \hline
+    \end{tabular}
+    \caption{Tarefas do projeto}
+    \label{table:activity}
+\end{table}
