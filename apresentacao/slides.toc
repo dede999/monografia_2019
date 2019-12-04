@@ -1,0 +1,12 @@
+\babel@toc {brazil}{}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@sectionintoc {2}{Propostas}{12}{0}{2}
+\beamer@subsectionintoc {2}{1}{Interface de us\IeC {\'a}rio}{13}{0}{2}
+\beamer@subsectionintoc {2}{2}{Testes}{18}{0}{2}
+\beamer@subsectionintoc {2}{3}{Refatora\IeC {\c c}\IeC {\~a}o}{23}{0}{2}
+\beamer@sectionintoc {3}{Resultados}{33}{0}{3}
+\beamer@subsectionintoc {3}{1}{API}{34}{0}{3}
+\beamer@subsectionintoc {3}{2}{Interface}{39}{0}{3}
+\beamer@subsectionintoc {3}{3}{Balan\IeC {\c c}o Geral}{43}{0}{3}
+\beamer@sectionintoc {4}{Aprendizados}{52}{0}{4}
+\beamer@sectionintoc {5}{Bibliografia}{54}{0}{5}

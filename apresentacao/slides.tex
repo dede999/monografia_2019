@@ -64,16 +64,17 @@ pdfauthor={André Luiz Abdalla Silveira} %% Enter the apppropriate author in her
 
   \begin{frame}{O que é o DELPo}
     \begin{itemize}
-      \item material de estudo de um TCC no ano passado \pause
-      \item acrônimo de Dicionário Etimológico da Língua Portuguesa \pause
+%      \item acrônimo de Dicionário Etimológico da Língua Portuguesa \pause
       \item projeto criado em 2012 pelo Prof. Dr. Mário Eduardo Viaro (DLCV -- FFLCH-USP) \pause
       \item destinado a facilitar o estudo de etimologia \pause
-      \item plataforma processa textos recebidos e alimenta a base de dados
+      \item plataforma processa textos recebidos e alimenta a base de dados \pause
+      \item material de estudo de um TCC no ano passado
     \end{itemize}
   \end{frame}
 
   \begin{frame}{Funcionalidades}
     \begin{itemize}
+      \pause
       \item Moedor -- principal e foco da refatoração \pause
       \item Metaplasmador \pause
       \item Analisador de frequência ao longo dos anos
@@ -110,11 +111,17 @@ pdfauthor={André Luiz Abdalla Silveira} %% Enter the apppropriate author in her
       \item O que se pode verificar?
       \begin{itemize}
         \item Comportamento da aplicação --- Rails (testes em RSpec) \pause % familiarizado
-        \item Integração de componentes --- Nuxt (testes em Jest) \pause % preciso conhecer -- escolhi por ser mais acessível e parecido com o RSpec
+        \item Integração e comportamento de componentes --- Nuxt (testes em Jest) % preciso conhecer -- escolhi por ser mais acessível e parecido com o RSpec
       \end{itemize}
-      \item Cobertura de testes na aplicação Rails: $72\%$ \pause % siimple-cov gem
-      \item Cobertura de testes na aplicação Nuxt: Não haviam testes  % a própria ferramenta aponta a cobertura sem precisar de helpers
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Cobertura}
+    \begin{figure}
+      \centering
+      \includegraphics[width=.9\textwidth]{../figuras/test_coverage.png}
+      \caption{Cobertura de testes no Rails}
+    \end{figure}
   \end{frame}
 
   \subsection{Refatoração}\label{subsec:refatoracao}
@@ -238,7 +245,7 @@ pdfauthor={André Luiz Abdalla Silveira} %% Enter the apppropriate author in her
         \item Adaptação dos dados do banco de dados antigo \pause
         \item Fazer os testes do front \pause
       \end{itemize}
-      \item Observação: As porcentagens na coluna do meio são uma estimativa do grau de conclusão da tarefa
+      \item Observação: As porcentagens são uma estimativa do grau de conclusão da tarefa
     \end{itemize}
   \end{frame}
 
