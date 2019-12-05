@@ -1,0 +1,10 @@
+{\reset@font\mlffont\mtc@string\contentsline{figure}{\noexpand \leavevmode \numberline {4.1}{\ignorespaces Arquivo de rotas\relax }}{\reset@font\mlffont 25}{figure.caption.22}}
+{\reset@font\mlffont\mtc@string\contentsline{figure}{\noexpand \leavevmode \numberline {4.2}{\ignorespaces \texttt {POST /auth}\relax }}{\reset@font\mlffont 26}{figure.caption.24}}
+{\reset@font\mlffont\mtc@string\contentsline{figure}{\noexpand \leavevmode \numberline {4.3}{\ignorespaces \texttt {POST /auth/sign\_in}\relax }}{\reset@font\mlffont 26}{figure.caption.26}}
+{\reset@font\mlffont\mtc@string\contentsline{figure}{\noexpand \leavevmode \numberline {4.4}{\ignorespaces \texttt {POST /perfis}\relax }}{\reset@font\mlffont 27}{figure.caption.28}}
+{\reset@font\mlffont\mtc@string\contentsline{figure}{\noexpand \leavevmode \numberline {4.5}{\ignorespaces \texttt {GET /meu\_perfil} ou \texttt {GET /perfis/:id}\relax }}{\reset@font\mlffont 28}{figure.caption.30}}
+{\reset@font\mlffont\mtc@string\contentsline{figure}{\noexpand \leavevmode \numberline {4.6}{\ignorespaces \texttt {DELETE /sign\_out}\relax }}{\reset@font\mlffont 28}{figure.caption.32}}
+{\reset@font\mlffont\mtc@string\contentsline{figure}{\noexpand \leavevmode \numberline {4.7}{\ignorespaces Captura de telas feitas a partir da interface\relax }}{\reset@font\mlffont 28}{figure.caption.33}}
+{\reset@font\mlfSfont\mtc@string\contentsline{subfigure}{\noexpand \leavevmode \numberline {(a)}{\ignorespaces {\texttt {/home}}}}{\reset@font\mlfSfont 28}{subfigure.7.1}}
+{\reset@font\mlfSfont\mtc@string\contentsline{subfigure}{\noexpand \leavevmode \numberline {(b)}{\ignorespaces {\texttt {/equipe}}}}{\reset@font\mlfSfont 28}{subfigure.7.2}}
+{\reset@font\mlffont\mtc@string\contentsline{figure}{\noexpand \leavevmode \numberline {4.8}{\ignorespaces Parte do relat\IeC {\'o}rio de cobertura de testes\relax }}{\reset@font\mlffont 29}{figure.caption.34}}
