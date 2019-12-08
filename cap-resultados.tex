@@ -5,7 +5,7 @@
 
 \intro{Neste capítulo serão mostrados os resultados deste trabalho. Mas como fazer isso se capturas de tela
 não são capazes de mostrar a aplicação funcionando ao vivo? A ideia é ilustrar as funcionalidades principais
-enquanto o link da aplicação em produção ficará diponível aqui.
+enquanto o link da aplicação em produção não estiver disponível aqui.
 
 Outro ponto importante a mostrar aqui é a cobertura de testes. A cobertura do frot não será tão extensiva
 quanto a do back, mas ao comparar com o que se tinha no começo do ano, é infinitamente maior. }
@@ -56,7 +56,7 @@ Na figura acima, como podemos ver como o cadastro de novos pesquisadores é feit
 o status da requisição como uma representação em JSON do objeto \texttt{Usuario}. Os cabeçalhos da resposta permitem que
 o usuário possa ser reconhecido, e portanto, autenticado (especificamente os campos \texttt{uid}, \texttt{client} e
 \texttt{access-token}). Não é necessário fazer login depois de se cadastrar. Pode apresentar falhas se o usuário utilizar
-um email repetido, ou se os cabeçalhos estiverem incorretos.
+um e-mail repetido, ou se os cabeçalhos estiverem incorretos.
 
 \subsubsection{Log-in}
 
@@ -92,7 +92,7 @@ criado. Os campos necessários na requisição para criação do perfil são:
   \item tipo de pesquisador (filologia, edição, programador, produtivo)
 \end{itemize}
 
-No primeiro momento, os cabeçalhos da resposta vão retonar valores praticamente constantes, entretanto, e por motivos de
+No primeiro momento, os cabeçalhos da resposta vão retornar valores praticamente constantes, entretanto, e por motivos de
 segurança, é recomendável modificar os tokens de acesso a cada nova requisição. Isso está na lista de coisas a implementar.
 
 \subsubsection{Vendo um perfil \hfill figura \ref{fig:ver-perfil}}
@@ -149,8 +149,8 @@ será testado.
 \label{subsec:testes-cobertura}
 
 Uma das propostas do projeto era ter uma cobertura razoável de testes. Na aplicação Rails isso foi feito de fato. No
-aplicação Nuxt, entretanto, não foi possível\footnote{Motivo espresso na sessão \ref{subsec:no-tests-for-nuxt}}. Tendo
-dito, aqui está um print que comprova a cobertura de testes no back end no momento da entrega de monografia. Este
+aplicação Nuxt, entretanto, não foi possível\footnote{Motivo expresso na sessão \ref{subsec:no-tests-for-nuxt}}. Tendo
+dito, aqui está uma captura de tela que comprova a cobertura de testes no back end no momento da entrega de monografia. Este
 relatório é produzido por uma gema chamada \texttt{simple-cov}. Ao executar os testes, o sistema entra em ação e gera um
 painel que permite ao desenvolvedor saber que módulos ou classes precisam de mais cobertura.
 
@@ -160,57 +160,3 @@ painel que permite ao desenvolvedor saber que módulos ou classes precisam de ma
   \caption{Parte do relatório de cobertura de testes}
   \label{fig:test-coverage}
 \end{figure}
-
-\section{O que será feito?}
-\label{sec:what-will-be-done}
-
-Mesmo depois de concluído a disciplina, pretendo ainda contribuir para o projeto, e isso abre oportunidades de implementar
-mais coisas, além de terminar o que foi iniciado, claro.
-
-\subsection{Atividades Em Andamento}\label{subsec:ongoing}
-
-Segue um detalhamento sobre os detalhes que faltam para completar certos os pontos levantados na tabela \ref{table:activity}
-
-\subsubsection{Fazer uma interface de usuário agradável}
-
-\begin{itemize}
-  \item Completo o sistema de login, é necessério inserir a funcionalidade de moagem e estudar como serão mostrados os
-  resultados
-  \item Falta criar um painel de controle do usuário onde ele possa interagir com as atividades que ele pode usar, e fazer
-  suas pesquisas --- isso pode depender da implementação de controladores que antes não eram necessários
-\end{itemize}
-
-\subsubsection{Fazer os testes da aplicação Rails}
-
-\begin{itemize}
-  \item Depende de continuar refatorando código antigo
-  \item Como ficou claro na figura \ref{fig:test-coverage}, os arquivos com menos (abaixo de 90\%) cobertura foram
-  \begin{itemize}
-    \item \texttt{app/models/moedor.rb}
-    \item \texttt{app/helpers/moedor\_helper.rb}
-  \end{itemize}
-  \item No caso desses aquivos, o problema é a quantidade de métodos ainda sem refatoração.
-\end{itemize}
-
-\subsubsection{Refatorar o moedor}
-
-O que falta pra concluir essa tarefa é quebrar dois métodos que dependem de consultas em SQL utilizando o
-\emph{ActiveRecord}. Outra coisa importantíssima e potencialmente desafiadora é quebrar o método
-\texttt{processa\_contextos} que conta com 962 linhas. O \texttt{initialize}  dessa classe (que pode ser engolida pelo
-método de mesmo nome) também deve ser quebrado em alguns outros.
-
-\subsection{Atividades A Fazer}\label{subsec:to-do}
-
-\paragraph{Adaptação do conteúdo do outro banco de dados} Pode não ser o maior dos desafios, mas pode dar bastante
-trabalho. Trata-se de colocar os dados do banco de dados da aplicação atualmente em produção, e passá-los para a
-aplicação Rails.
-
-\paragraph{Fazer os testes do front} A ideia para testar a aplicação em Nuxt é assistir um curso da plataforma
-\href{https://vueschool.io/}{\textbf{Vue School}} voltado a como testar componentes Vue com Jest. O propósito é usar meus
-componentes como material de exercício dessas aulas. Depois de testar o que foi feito até agora, posso começar a
-implementar com base em componentes que ainda pretendo implementar
-
-\subsection{Refatorações}\label{subsec:refatoracoes}
-
-Além da refatoração do moedor já mencionada, é possível que se implemente um construtor de formulários e botões. Tudo
-para repetir menos código e facilitar os testes.

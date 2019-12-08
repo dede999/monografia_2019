@@ -3,15 +3,15 @@
 
 \intro{Segundo o \citetalias[p.15]{MN2}, o idioma português é aquele com menor quantidade
 de informação etimológica disponível se comparado com outros idiomas românicos. Com
-vistas a minorar esse problema, alguns projetos de pesquisa visam métodos de otimizar a
+vistas a minorar esse problema, alguns projetos de pesquisa buscam métodos de otimizar a
 obtenção de registros. O projeto DELPo é um ótimo exemplo. Através de um algoritmo
-\textit{modeor} que recebe um arquivo, registram-se ocorrências, lemas e flexões que
+\textit{moedor} que recebe um arquivo, registram-se ocorrências, lemas e flexões que
 auxiliam a monitorar que elementos são mais recentes. Este fluxo mimetiza o algoritmo que
 se aplica a cartões físicos.
 
 O projeto já conta com um portal web em produção. Este trabalho, entretanto, era feito em PHP,
 e havia alguns gargalos na aplicação. Alguns foram removidos ano passado, outros estão sendo
-estirpados agora. Além disso, cada parte da implemetação agora está sendo feita com as ferramentas
+extirpados agora. Além disso, cada parte da implementação agora está sendo feita com as ferramentas
 que o aluno julga mais apropriadas. Por exemplo, a parte do projeto implementada em Rails (Ruby on
 Rails) é o \say{backend} enquanto as visualizações são feitas em \citetalias{Nuxt}}
 
@@ -35,7 +35,7 @@ comprometiam a utilização por parte de pesquisadores, este trabalho propõe-se
 reduzí-los de maneira a facilitar a vida dos entusiastas e estudiosos da área.
 
 Além da motivação nobre de ajudar, não se pode ignorar o impacto de um grande trabalho como
-este terá no currículum do aluno em questão. Um trabalho bem feito abrirá portas para grandes
+este terá no curriculum do aluno em questão. Um trabalho bem feito abrirá portas para grandes
 oportunidades que aparecerão dado que quem faz um excelente serviço poderá fazer muitos outros.
 Do contrário, um serviço mal feito, um software de qualidade duvidosa não vai abrir portas ao
 aluno, que nem se daria ao trabalho de mostrar algo mal-feito.
@@ -48,14 +48,14 @@ deseja, ou até mesmo a necessidade de refazer grandes partes daquele programa s
 bastante para que o aluno passe a se preocupar com o que ele faz.
 
 Mas o que é um código de limpo? Segundo \citeauthor{CCL}, é um código que pode ser lido, compreendido,
-melhorado, extendido e mantido por qualquer outro desenvolvedor.
+melhorado, estendido e mantido por qualquer outro desenvolvedor.
 
 Ele fez um trabalho importantíssimo ao juntar vários preceitos em um só documento. Um grande punhado
 de convenções (ou conselhos, se preferir) para quem deseja fazer um código excelente. Por se tratar de
 mais de 50 \say{leis}, é um tanto trabalhoso que sigam-se todas elas, mas com certeza se trata de um bom
 ponto de partida.
 
-Na sessão \ref{sec:boas-praticas} econtram-se algumas diretrizes da produção de bom código.
+Na sessão \ref{sec:boas-praticas} encontram-se algumas diretrizes da produção de bom código.
 
 \section{Sobre a proposta} \label{sec:proposta}
 
@@ -63,18 +63,18 @@ Vale saber, além dos objetivos supra citados, qual é a proposta geral desse tr
 \begin{itemize}
     \item continuação do trabalho de criar uma aplicação em Rails\footnote{vide p.\pageref{subsec:rails}}
     da API usada no novo portal do DELPO. Inclui cobertura extensiva de testes de unidade.
-    \item retoque no banco de dados da aplição e articulação das entidades usando PostgreSQL
-    \item modificação do modelo de autenticação de usários e implementação de níveis de permissão compatível
+    \item retoque no banco de dados da aplicação e articulação das entidades usando PostgreSQL
+    \item modificação do modelo de autenticação de usuários e implementação de níveis de permissão compatível
     com o que o \citetalias{MN2} determina
     \item melhoramento do sistema moedor \footnote{vide p.\pageref{subsec:moagem}}
     \item Permitir que a plataforma esteja disponível para uso da melhor forma possível. Ainda que isso
     implique que algumas refatorações e melhorias ficarem de lado.
 \end{itemize}
 
-O moedor que há na aplicação atual é enorme e exige grande refatoração. Entretanto, como a bagunça é grande,
-(diferente do prazo) o que será feito são alguma melhorias em alguns métodos, remoção dos desnecessários, e
-por aí vai. A ideia é que, na medida do possível, as funções fiquem mais fáceis de entender, e o código ganhe
-em inteligibilidade. O moedor tem dois módulos: o de leitura e o de análise.
+O moedor que há na aplicação atual é enorme e exige grande refatoração. Entretanto, como o tempo disponível não 
+era o bastante para sanar os problemas observados, o que será feito são alguma melhorias em alguns métodos,
+remoção dos desnecessários, entre outras medidas. A ideia é que, na medida do possível, as funções fiquem mais
+fáceis de entender, e o código ganhe em inteligibilidade. O moedor tem dois módulos: o de leitura e o de análise.
 
 O primeiro trata de quebrar o texto em contextos (orações) e palavras. Cada quais destas é analisada com o
 objetivo de encontrar sua forma básica\footnote{por exemplo, abrindo \dir abrir}, procurar se ela existe no
@@ -86,7 +86,7 @@ que faz as partes da tarefas que a máquina não é capaz de fazer. Este módulo
 módulo acima, e os apresenta ao pesquisador da forma como será mencionada na sub-seção \ref{subsec:nehilp-delpo}
 na descrição do programa moedor. Resumidamente, uma palavra contida na obra pode ser marcada em azul (se ainda
 não estiver no banco de dados) ou em vermelho (caso já exista no banco de dados e esteja associada a uma data
-\emph{maior}\footnote{vide sub-seção \ref{subsec:moagem} para mais detalhes} que a do texto analizado)
+\emph{maior}\footnote{vide sub-seção \ref{subsec:moagem} para mais detalhes} que a do texto analisado)
 
 \section{Metodologia}
 \label{sec:methodology}
@@ -118,7 +118,7 @@ O passo 3 também exigiu um bom tempo. Inicialmente tentou-se fazer menores alte
 o código. Isso seria muito menos trabalhoso, e demandaria menos tempo também. O que se observou,
 entretanto é que fazer mudanças específicas não era tão simples quanto parecia, ou quanto de fato
 seria se estivesse com um dos membros da antiga equipe consigo. Dessa forma, decidiu-se refazer as
-tabelas com bas nas que já tinham sido feitas. Enquanto os modelos ficavam prontos e se conectavam,
+tabelas com base nas que já tinham sido feitas. Enquanto os modelos ficavam prontos e se conectavam,
 os testes cobriam se as determinações e os relacionamentos foram realmente estabelecidos.
 
 Além das mudanças supracitadas, o passo 4 engloba as mudanças nos controladores e a criação de métodos
@@ -127,7 +127,7 @@ compartimentado, conciso e não repetitivo.
 
 O maior desafio foi refatorar o moedor. Os principais problemas com o código são nomes de métodos que
 não descrevem o que ele faz, métodos desnecessários (como o que declara um hash que poderia ser uma
-constante dentro do módulo), e a funação principal do módulo com mais de mil linhas e com muitas
+constante dentro do módulo), e a função principal do módulo com mais de mil linhas e com muitas
 atribuições desconhecidas.
 
 A parte 5 está em desenvolvimento neste exato momento e conta com o auxílio da professora Vanessa,
@@ -152,4 +152,3 @@ está pronto e o que pode ser feito no futuro.
 
 O último capítulo, \textbf{Das conclusões finais}, faz-se um resumo do que está documentado, destacando o que for mais
 conveniente.
-

@@ -1,4 +1,3 @@
-
 \chapter{Dos conceitos principais}
 \label{cap:main-concepts}
 \minitoc
@@ -19,7 +18,7 @@ ter que pesquisar muito fora daqui.}
 
 Uma das finalidades principais do NEHiLP é pesquisar sobre Linguística Histórica,
 Filologia e Etimologia. Para a pesquisa, requere-se a análise de documentos das
-mais variadas épocas, a fim de recolher informações linguísticas. Gerar e organiar
+mais variadas épocas, a fim de recolher informações linguísticas. Gerar e organizar
 dados para o estudo da história da língua portuguesa é uma das principais metas
 deste trabalho.
 
@@ -90,9 +89,9 @@ Dessa forma, num determinado dicionário, todo signo que seja objeto de definiç
 ou explicação é um lema. Pode-se dizer que os verbetes descritos num dicionário
 são lemas. \say{Algoritmo} pode ser considerado um lema, por exemplo.
 
-Interesante pontuar o que disse \citet[p.~146]{Mar:17} sobre duas palavras escritas
+Interessante pontuar o que disse \citet[p.~146]{Mar:17} sobre duas palavras escritas
 da mesma forma poderem ser um lema ou dois. No primeiro caso, o fenômeno seria
-fruto de homonímia (timilogias distintas). No segundo caso, a polissemia seria
+fruto de homonímia (etimologias distintas). No segundo caso, a polissemia seria
 responsável por isso.
 
 \subsubsection{Definição de novos termos para o tratamento computacional dos
@@ -109,8 +108,8 @@ Acima enconrtam-se termos criados com o único intuito de facilitar o tratamento
 computacional dos dados a serem manipulados.
 
 O \kw{Metalema} se trata de um conjunto de letras único e dotado de significado,
-independete da quantidade de acepções a que corresponda. Não há metalemas iguais.
-Isso o diferencia de um lema lexicográrifico tradicional pois, como já mencionado,
+independente da quantidade de acepções a que corresponda. Não há metalemas iguais.
+Isso o diferencia de um lema lexicográfico tradicional pois, como já mencionado,
 uma palavra pode estar associado a um ou dois lemas.
 
 Veja um exemplo: a palavra \say{manga} pode estar associada a dois lemas ($manga^1$--
@@ -171,12 +170,12 @@ ultralema:
 \section{O Back-end}
 \label{sec:back-end}
 
-Antes de entrar no mérito da definição de back e front-end, é conveniente explicar o porquê da
+Antes de entrar no mérito da definição de back e front end, é conveniente explicar o porquê da
 separação dos tópicos. Além da obvia separação entre os dois repositórios, deve-se pelo fato de
-constituirem diferentes camadas do mesmo sistemas. Camadas distintas, desenvolvidas de outras
+constituírem diferentes camadas do mesmo sistemas. Camadas distintas, desenvolvidas de outras
 maneiras e com ferramentas distintas.
 
-O back-end, a camada mais funda do portal, é onde os dados são inseridos, consultados e removidos.
+O back end, a camada mais funda do portal, é onde os dados são inseridos, consultados e removidos.
 Esta camada, ao contrário da outra, não fica acessível ao cliente, que dificilmente compreenderia
 o que está se passando.
 
@@ -188,7 +187,7 @@ Matsumoto em 1993. Ruby pode ser considerada como que um encontro entre Python,
 Perl e Smalltalk. Por ser uma linguagem tão versátil e permitir que o
 desenvolvedor concentre melhor suas energias em fazer o algoritmo\footnote{ao
 invés de ficar lutando contra a programação}  como disseram \citet{Rcook:09}, e
-pelos motivos citados abaixo, escolheu-se Ruby para o desenvolvimento do back-end.
+pelos motivos citados abaixo, escolheu-se Ruby para o desenvolvimento do back end.
 
 Ruby apresenta uma notável facilidade em lidar com expressões regulares
 e com texto, fator de grave importância para a produção do moedor (funcionalidade
@@ -206,7 +205,7 @@ muitos}). Além da obra de \citet{Rcook:09}, o site
 também é uma boa sugestão quando se precisa de alguma ideia, ou em momento de dúvida.
 
 O livro, tal como o título e os próprios autores \cite[xvii]{Rcook:09} sugerem, é um
-livro de receitas. Apresenta soluções para prblemas comuns e pequenos tutoriais. A
+livro de receitas. Apresenta soluções para problemas comuns e pequenos tutoriais. A
 página, como o nome diz, é um compilado de tutoriais e é perfeito para quando há
 dúvidas pontuais. A figura na sessão sobre RSpec é um print tirado da página.
 
@@ -214,8 +213,8 @@ Quando a pesquisa visa compreender os limites do Ruby e do Rails, olhar a docume
 oficial é a melhor solução. Por se tratar de múltiplas páginas, não achei conveniente
 colocar todas na bibliografia, senão o guia do Rails. No entanto, uma pesquisa com as
 palavras chave \say{ruby}, o nome da classe a explorar e \say{docs} ajudam muito, também.
-Pesquisar por gems pra fazer algo por você também gera ótimos resultados (foi assim que
-encontrei uma gem que transforma núeros romanos em decimais e vice-versa.)
+Pesquisar por gemas pra fazer algo por você também gera ótimos resultados (foi assim que
+encontrei uma gema que transforma números romanos em decimais e vice-versa.)
 
 \begin{figure}
     \centering
@@ -246,8 +245,8 @@ de ferramenta alguma, podendo mesmo ser aplicado a sistemas heterogêneos (leia-
 utilizam mais de um framework). A sigla junta as iniciais das palavras \emph{model},
 \emph{view} e \emph{controller}.
 \begin{description}
-    \item[model] realaciona os dados, cuida das validações a nível de back-end, transações,
-    e por aí vai. O sistema conta com o \emph{ActiveRecord}, que serve de ponte entre o
+    \item[model] relaciona os dados, cuida das validações a nível de back end, transações
+    e buscas. O sistema conta com o \emph{ActiveRecord}, que serve de ponte entre o
     programador, além de gerar métodos de recepção de dados (\emph{getters}) e de manipulação
     (\emph{setters}) de acordo com os campos da tabela (figura \ref{fig:mvc}).
     \item[view] é a camada de visualização do Rails. Implementado com a biblioteca
@@ -266,7 +265,7 @@ utilizam mais de um framework). A sigla junta as iniciais das palavras \emph{mod
 \end{figure}
 
 Outro ponto muito forte (e ao mesmo tempo, um calcanhar de aquiles\footnote{chegarei aí ao falar
-do front-end}) da ferramenta são as convenções que, para o desenvolvedor tradicional de Rails,
+do front end}) da ferramenta são as convenções que, para o desenvolvedor tradicional de Rails,
 importam mais que um arquivo de configurações gigante. Seguindo os padrões que a ferramenta estipula
 também salva ao desenvolvedor muito tempo que pode ser usado para a criação e planejamento de novas
 funcionalidades.
@@ -281,7 +280,7 @@ modo significa que sua aplicação serve JSON (Javascript Object Notation) ao in
 disso, a aplicação em modo API (não só em Rails, como qualquer outra linguagem e framework) permite
 que as respostas sejam coletadas por várias outras aplicações, e essa é só uma das vantagens de usar
 o Rails desta forma. O \href{https://edgeguides.rubyonrails.org/api_app.html}{guia do modo API}
-fornece algumas outras como a proteção a ateques como o de IP Spoofing.
+fornece algumas outras como a proteção a ataques como o de IP Spoofing.
 
 \subsection{RSpec}
 \label{subsec:rspec}
@@ -294,7 +293,7 @@ Vale dizer também, que em um sistema robusto e cheio de funcionalidades, provar
 formalmente que tudo está em perfeito estado é um trabalho hercúleo e cansativo
 sem contar que é um grande redutor de produtividade. É por isso que que se faz
 necessária a construção de testes. Praticamente todo aluno de computação passou
-por dificulades ao caçar problemas em trabalhos no início de sua graduação.
+por dificuldades ao caçar problemas em trabalhos no início de sua graduação.
 Estes provavelmente saberão melhor o quanto convém ter um conjunto de testes
 para as funções criadas.
 
@@ -327,18 +326,18 @@ API e fazer uma aplicação em Nuxt.JS a parte.
 
 \subsection{Vue JS}\label{subsec:vue-js}
 
-Segundo o guia oficial, Vue (prununciado como $/vju/$ \dir \textbf{view}), é uma ferramenta
+Segundo o guia oficial, Vue (pronunciado como $/vju/$ \dir \textbf{view}), é uma ferramenta
 voltada à produção de interfaces de usuário, sendo este o seu foco. No vídeo exibido na página
 principal do \citetalias{Vue}, podemos ver alguns de seus traços básicos.
 
 O principal forte é versátil. Mas em que sentido? A depender do que você precisa do Vue, há uma
 receita do que pode ser feito. Quer fazer um site estático? É possível. Quer uma ferramenta que
-complemete um back-end (produzindo uma produção fullstack)? Dá pra fazer, também. Vue é uma
+completamete um back end (produzindo uma produção fullstack)? Dá pra fazer, também. Vue é uma
 \say{massinha de modelar} em questão de ferramenta javascript.
 
 Vue também é uma ferramenta acessível. Além de se tratar de um projeto de software livre, qualquer
 um que tiver um bom domínio de HTML, CSS e JS podem utilizá-lo. Além disso, o programador que está
-entrando em uma equipe utilizando Vue provavelmente terá pouco trabalho em se interar do que foi
+entrando em uma equipe utilizando Vue provavelmente terá pouco trabalho em se inteirar do que foi
 feito. A curva de aprendizado pode ser incrivelmente suave, também.
 
 Além disso, conta com uma grande quantidade de ferramentas afins construidas a partir dessa. Um
@@ -388,11 +387,11 @@ Outra mudança notável é a organização das pastas e arquivos (veja a figura 
 Em projetos Vue (a), temos, por padrão, somente o diretório \texttt{src/} concentrando a maior parte
 dos arquivos relevantes do projeto. Dentro deste, há uma separação maior, mas ainda não dá pra saber
 que componentes gerarão páginas e quais serão simples componentes que as formarão. No Nuxt (b), não
-há uma pasta que concentre quase todo o cógigo da aplicação. Ao invés disso, há muitas pastas que
-abrigam cógigos cuja natureza está descrita pelo nome do diretório.
+há uma pasta que concentre quase todo o código da aplicação. Ao invés disso, há muitas pastas que
+abrigam códigos cuja natureza está descrita pelo nome do diretório.
 
 \emph{Search Engine Optimization}(SEO) é a propriedade de uma aplicação que facilita a  indexação e
-pesquisa de elementos nela presente. Isso pode ser feito em Vue, por exmplo. Mas a solução não é
+pesquisa de elementos nela presente. Isso pode ser feito em Vue, por exemplo. Mas a solução não é
 difícil, mas envolve carregar página por página no servidor. Em uma plataforma menor talvez seja
 viável. Entretanto, quando o sistema ganha em complexidade e capilaridade, torna-se cada vez menos
 produtivo. O Nuxt é pré configurado para fazer essa ação por debaixo do pano, simplificando o
@@ -413,17 +412,17 @@ Para acabar, vale falar um pouco de duas características deste framework:
 
 \subsection{Jest}\label{subsec:jest}
 
-\citetalias{Jest}, de modo similar a RSpec, é uma ferramenta de testes para Javascript criada pela equipe do Fecaebook,
+\citetalias{Jest}, de modo similar a RSpec, é uma ferramenta de testes para Javascript criada pela equipe do Fecebook,
 motivo pelo qual alguns acreditam que seja uma biblioteca exclusiva do React (framework javascript também
 desenvolvida pelo Facebook), o que não é verdade.
 
 É uma ferramenta performática, e parte deste bom desempenho se deve ao fato de que cada teste ser rodado
 num processo distinto rodando em paralelo com os demais. Isso é possível, pois cada teste tem o seu
-\say{contexto global} garantindo independêcia entre cada um. Para aumentar ainda mais a performance, testes
+\say{contexto global} garantindo independência entre cada um. Para aumentar ainda mais a performance, testes
 que falharam são executados primeiro. Além disso, os testes são organizados baseado no tempo necessário a
 executá-los.
 
-A ferramenta verifica a cobertura de testes na aplicação. Em outras palavras, iserindo um argumento de linha
+A ferramenta verifica a cobertura de testes na aplicação. Em outras palavras, inserindo um argumento de linha
 de comando\footnote{Em aplicações Nuxt, essa verificação é feita sem a necessidade de argumentos adicionais}
 \texttt{\kw{- -coverage}}, é possível que se veja o quanto de cada parte do código é verificado através dos
 testes. Pode-se questionar a importância dessa funcionalidade. Entretanto, saber o que já foi coberto é
@@ -475,7 +474,7 @@ SOLID é uma sigla formada pelo título de cada um dos 5 princípios componentes
 
 \subsection{Outras recomendações}\label{subsec:recomendacoes}
 
-Além desses preceitos, há outros pilares a levar em conta, e quando seguindos, melhoram e muito a qualidade do
+Além desses preceitos, há outros pilares a levar em conta, e quando seguidos, melhoram e muito a qualidade do
 código. Eis alguns desses presentes no texto de \cite{BP}
 \begin{itemize}
     \item Use nome de variáveis que tenham significado e que sejam fáceis de pronunciar. Nomes como \texttt{\kw{i}},

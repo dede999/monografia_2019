@@ -4,7 +4,7 @@
 \minitoc
 
 \intro{Neste capítulo encontram-se reflexões spbre decisões de projeto que foram tomadas e uma reflexão sobre cada uma.
-As reflexões estão agrugadas em temas, de forma que o conteúdo fique bem organizado. A ideia, desde o início é que este
+As reflexões estão agrupadas em temas, de forma que o conteúdo fique bem organizado. A ideia, desde o início é que este
 capítulo tivesse a feição de uma página de perguntas e respostas.}
 
 \section{Arquitetura de projeto}\label{sec:arquitetura}
@@ -43,9 +43,9 @@ Muita coisa que estava pronta teve que ser alterada. Outras tiveram que ser aban
 a um aumento de trabalho a ser feito?
 
 Primeiramente, quando o Rails foi criado em 2005, não havia tantas ferramentas de Javascript como há hoje
-(junto com as mencionadas acima, ainda há Ember.js, Backbone, e outras tantas ...). É uma ferramente pra
+(junto com as mencionadas acima, ainda há Ember.js, Backbone, e outras tantas ...). É uma ferramenta pra
 entregar produtos minimamente viáveis em pouco tempo. Com o surgimento de frameworks voltados à preparação
-da camada de apresentação, usar o Active View tournou-se cada vez menos interessante.
+da camada de apresentação, usar o Active View tornou-se cada vez menos interessante.
 
 Outro motivo é a possibilidade de construir uma interface mais agradável e dinâmica para a aplicação. Pode não
 parecer o melhor dos motivos, mas justamente pelo fato dessas ferramentas \say{js} serem voltadas à construção
@@ -85,7 +85,7 @@ encaixes ficariam melhor, como os testes seriam mais fáceis de fazer.
 
 O desenvolvimento do front será feito em Nuxt.js. O foco principal é na construção do moedor e do sistema de login.
 Como nem todos os controladores foram construídos, trabalhar-se-á nas duas pontas (Front e Back). Nesta fase, o TDD
-será deixado um pouco de lado, para que o desenvolvimento seja mais rápido. Recomendações de estilo de dódigo, como
+será deixado um pouco de lado, para que o desenvolvimento seja mais rápido. Recomendações de estilo de código, como
 as vistas neste \href{https://br.vuejs.org/v2/style-guide/index.html}{link} serão seguidas na medida do possível.
 
 Outra coisa que será observada no desenvolvimento será as regras de bom código, como a responsabilidade única, por
@@ -103,8 +103,8 @@ Antes de começar a falar sobre isto, fica a conhecimento do leitor a seguinte c
 \subsection{RR -- Na sessão anterior foi mencionado que o banco de dados foi alterado. Que alterações são essas, e por que
 foram feitas?} \label{subsec:db-changes}
 
-Sim, algumas mudanças foram feitas no banco de dados. Não foram miutas, mas foram essenciais. A cada entidade
-recriada, o modelo era construido, as validações eram construidas de acordo com os modelos originais. Além das
+Sim, algumas mudanças foram feitas no banco de dados. Não foram muitas, mas foram essenciais. A cada entidade
+recriada, o modelo era construído, as validações eram pensadas de acordo com os modelos originais. Além das
 validações, as ligações entre modelo eram reforçadas por meio de palavras chave que auxiliam o mapeador objeto-
 relacionamento. Tudo isso quase sempre vinha depois de construir os testes relativos àquele modelo. Tendo dito
 isso, pode-se mencionar as mudanças principais no banco de dado.
@@ -118,7 +118,7 @@ No caso dessa entidade, não era trivial o que ela fazia. Conversando com o prof
 entidade funcionava tal qual uma lista ligada simples onde o mais novo ligava-se ao mais velho, e assim vai.
 O lado bom de fazer isso é que manter o registro de que pesquisador colocou uma determinada acepção. Além de
 ser fácil remover, caso necessário for, pode ser fácil de averiguar a cronologia das acepções. A cabeça da lista
-era o mais recente, e a instãncia na tabela acepção tinha uma chave estrangeira para essa cabeça. Veja como
+era o mais recente, e a instância na tabela acepção tinha uma chave estrangeira para essa cabeça. Veja como
 estava implementado.
 
 \begin{figure}[htb]
@@ -131,14 +131,14 @@ estava implementado.
 Mas havia um problema nessa implementação. O campo de ligação entre \kw{Acepção} e \kw{Histórico Acepção} só
 ajuda a verificar o mais atual. Para descobrir o meis antigo (para achar o \emph{Terminus a quo} -- taq), é
 necessário fazer de 0 a $n$ operações \texttt{JOIN} aumentando muito o custo da pesquisa por esta informação.
-Trata-se de um potencial garagalo.
+Trata-se de um potencial gargalo.
 
 Antes de pensar nas mudanças, bom pensar a razão de se precisar das instâncias mais antiga e mais recente. A
 importância da mais antiga se deve ao fato de que, através dela, pode-se conhecer a data aproximada ou real
 da sua primeira aparição. A mais nova é importante pois através dela é que se determina a grafia atua da acepção.
 
 Para refatorar a entidade, retirou-se o campo \texttt{:histacepatual\_id} da classe \kw{Acepção} e
-\texttt{:anterior\_id} de \kw{Hist$\_$Acepção}. Além disso, criou-se uma referêcia da primeira na segunda classe,
+\texttt{:anterior\_id} de \kw{Hist$\_$Acepção}. Além disso, criou-se uma referência da primeira na segunda classe,
 e uma chave na classe de acepções para a mais antiga e mais recente. As mudanças na prática podem ser vistas na
 tabela abaixo.
 
@@ -182,7 +182,7 @@ Justificativas:
         remover o seu registro do novo registro mais antigo
         \item[10 e 12] Após a remoção, pesquisa-se o elemento mais antigo ou recente. Isso depende da ordenação
         do histórico de acepções. Não se sabe em que algoritmo se baseia a ordenação do Ruby. Supondo que
-        seja baseado em comapações, com certeza roda em \Oh{n*lg\ n}
+        seja baseado em comparações, com certeza roda em \Oh{n*lg\ n}
     \end{description}
 \end{itemize}
 
@@ -206,7 +206,7 @@ nova. Isso não pode ser um problema?}
 Não, porque são operações que tiveram um desempenho estimado pior são as mesmas operações apontadas como
 menos frequentes pelo cliente, enquanto as operações mais repetidas tiveram um melhoramento.
 
-\subsection{N -- Por que a implementação do design pattern Builder foi abandonada na criação de formulários no front-end?}
+\subsection{N -- Por que a implementação do design pattern Builder foi abandonada na criação de formulários no front end?}
 \label{subsec:nuxt-left-design-pattern-builder}
 
 A ideia inicial no que diz respeito aos formulários, é que haveria uma classe Javascript que geraria os formulários. Mas
@@ -216,7 +216,7 @@ O motivo é que fazer vários formulários pode resultar em repetição de códi
 a qualidade do código. Além do mais, código repetido pode requerer testes com mais código duplicado, reduzindo a ainda
 mais a qualidade do código, sem mencionar a necessidade de se replicar determinadas mudanças.
 
-Exite uma troca inerente no processo. Buscar um sistema mais enxuto e esclável implica, na maioria das ocasiões, em um
+Exite uma troca inerente no processo. Buscar um sistema mais enxuto e escalável implica, na maioria das ocasiões, em um
 aumento (considerável ou não) de complexidade. Entretanto, uma vez implementado um construtor de formulários, pode-se
 simplesmente chamar o componente com o tipo específico de formulário a se criar. Essa ideia veio de uma palestra sobre
 como aplicar alguns design patterns no desenvolvimento com Vue.js. O vídeo desta palestra pode ser encontrado no YouTube
@@ -224,15 +224,15 @@ como aplicar alguns design patterns no desenvolvimento com Vue.js. O vídeo dest
 Conference Videos \dir VueConf US 2019, e \href{https://read-and-watch.github.io/videos/RF1bbhRw9sg/index.html}{neste link}
 se precisar de legendas para o vídeo.
 
-\paragraph{Por que então os formulários não foram implementados desta forma então?} Ao tentar implememntar uma solução
-similar, tive dificuldade, pois não sabia como passar os dados da requisição HTTP para o backend. Para evitar maiores
+\paragraph{Por que então os formulários não foram implementados desta forma então?} Ao tentar implementar uma solução
+similar, tive dificuldade, pois não sabia como passar os dados da requisição HTTP para o back end. Para evitar maiores
 atrasos, decidi criar múltiplos componentes. Passado o prazo do TCC, é uma coisa que adoraria fazer com mais calma.
 
 \subsection{N -- Existe uma quantidade considerável de código repetido no front. Isso não é algo ruim?}
 \label{subsec:no-dry}
 
 De fato. Em diversos momentos do desenvolvimento foi dito que repetir código era uma má prática, e não deixou de ser. O
-problema, entretanto, foi conciliar a vontade de fazer a melhor aplicação, com o melhor cógigo, o mais limpo possível,
+problema, entretanto, foi conciliar a vontade de fazer a melhor aplicação, com o melhor código, o mais limpo possível,
 com a necessidade do DELPo de estar de pé. Não posso faltar com o respeito com os integrantes do NEHiLP, e entregar algo
 que não funcione, mas também não posso escrever um código porco que a curto prazo nenhuma viva alma seria capaz de
 compreender. Provavelmente é uma das coisas em que mais preciso amadurecer, e pude aprender um pouco mais com esse projeto.
@@ -281,7 +281,7 @@ código pois nada foi modificado ali em termos de funcionamento.
 Um grande avanço observado foi na interface. Ela estava muito crua no início do ano, e agora ela apresenta um grande
 dinamismo. Ainda que o seu desenvolvimento esteja na fase de construção do sistema de admissibilidade de usuários, e da
 gestão de tokens, e pareça \say{cru}, é claro que não há muito o que deixar para o próximo desenvolvedor\footnote{Ainda
-que eu pretenda continuar a fazer o projeto mesmo depois de concluido o TCC.}.
+que eu pretenda continuar a fazer o projeto mesmo depois de concluído o TCC.}.
 
 Respondendo a última parte da pergunta, com certeza não vou receber um 10 por este trabalho. No entanto, se se levar
 em conta o balanço do que foi feito e do que não foi, perceber-se-á que o saldo foi extremamente positivo. Veja abaixo.
@@ -291,7 +291,7 @@ em conta o balanço do que foi feito e do que não foi, perceber-se-á que o sal
     \begin{tabular}{|c|c|c|}
         \hline
         \multicolumn{3}{|c|}{Atividades} \\ \hline\hline
-        Concluidas & Não Concluídas & Não iniciadas \\ \hline
+        Concluídas & Não Concluídas & Não iniciadas \\ \hline
         Refatorar o banco dedados & Fazer uma interface de  & Adaptação dos dados \\
         & usuário agradável (60\%) & do outro banco de dados \\ \hline
         Refatoração dos modelos  & Fazer os testes no back (73\%) & Fazer os testes do front \\
