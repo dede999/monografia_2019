@@ -7,21 +7,21 @@
 não são capazes de mostrar a aplicação funcionando ao vivo? A ideia é ilustrar as funcionalidades principais
 enquanto o link da aplicação em produção não estiver disponível aqui.
 
-Outro ponto importante a mostrar aqui é a cobertura de testes. A cobertura do frot não será tão extensiva
-quanto a do back, mas ao comparar com o que se tinha no começo do ano, é infinitamente maior. }
+Outro ponto importante a mostrar aqui é a cobertura de testes. A cobertura na aplicação do frot não é tão
+extensa quanto a do back, mas ao comparar com o que se tinha no começo do ano, é certamente maior. }
 
 \section{O que foi feito?}
 \label{sec:to-be-done}
 
-Na sessão \ref{sec:goals} fala-se que um dos objetivos era fazer um sistema eficiente com código limpo. Esse sistema
-divide-se em dois: a API feita em Rails e a interface de usuário feita em Nuxt.
+Na seção \ref{sec:goals} fala-se que um dos objetivos era fazer um sistema eficiente com código limpo.
+Esse sistema divide-se em dois: a API feita em Rails e a interface de usuário feita em Nuxt.
 
 \subsection{API Rails}\label{subsec:api-rails}
 
-Nessa parte, o principal feito foi uma grande refatoração. Muita coisa precisava ser refatorada e 90\% do tempo dedicado
-a este trabalho envolveu a refatoração do que tinha sido feito ano passado. O motivo não era um mal funcionamento, ou
-uma lógica equivocada. O código funcionava muito bem, mas estava engessado, e sem testes. Tudo foi devidamente acertado.
-Para ver as rotas criadas, vale ver o arquivo \texttt{delpo/config/routes}
+Nessa parte, o principal resultado foi uma grande refatoração. Muita coisa precisava ser refatorada e 90\% do
+tempo dedicado a este trabalho envolveu a modificação do que tinha sido feito ano passado. O motivo não era um
+mal funcionamento, ou uma lógica equivocada. O código funcionava muito bem, mas estava engessado, e sem testes.
+Tudo foi devidamente acertado. Para ver as rotas criadas, vale ver o arquivo \texttt{delpo/config/routes}
 
 \begin{figure}[h]
   \centering
@@ -39,7 +39,7 @@ Observações sobre a figura:
 
 Na figura \ref{fig:mvc}, vimos como uma aplicação MVC funciona. Entretanto, como não há visualização na aplicação em Rails,
 a gema \texttt{Active Model Serializer} substituiu o sistema que produz o conteúdo a partir de arquivos \texttt{.html.erb}.
-Para mostrar algumas rotas funcionando, usarei um cliente HTTP chamado Insomnia\footnote{Vale saber que, ao usar esse
+Para mostrar algumas rotas funcionando, usou-se um cliente HTTP chamado Insomnia\footnote{Vale saber que, ao usar esse
 programa, há abas específicas para se colocar os cabeçalhos das requisições. A única motivação para colocá-los junto aos
 dados enviados é capturar esses detalhes em uma única captura}. Os valores descritos nas capturas de tela são ilustrativos.
 
@@ -52,7 +52,7 @@ dados enviados é capturar esses detalhes em uma única captura}. Os valores des
   \label{fig:sign-up}
 \end{figure}
 
-Na figura acima, como podemos ver como o cadastro de novos pesquisadores é feito pelo backend. Os dados retornados são
+Na figura acima, pode-se ver como o cadastro de novos pesquisadores é feito pelo back end. Os dados retornados são
 o status da requisição como uma representação em JSON do objeto \texttt{Usuario}. Os cabeçalhos da resposta permitem que
 o usuário possa ser reconhecido, e portanto, autenticado (especificamente os campos \texttt{uid}, \texttt{client} e
 \texttt{access-token}). Não é necessário fazer login depois de se cadastrar. Pode apresentar falhas se o usuário utilizar
@@ -67,7 +67,7 @@ um e-mail repetido, ou se os cabeçalhos estiverem incorretos.
   \label{fig:sign-in}
 \end{figure}
 
-Muito similar ao controlador anterior, e retorna praticamente as mesmas coisas que a requisição anterior. Da mesma forma
+Muito similar ao controlador anterior, este retorna praticamente as mesmas coisas que a requisição anterior. Da mesma forma
 que a requisição acima, providencia dados suficientes para que o usuário seja reconhecido pelo sistema. Ao contrário do
 processo de cadastro, destina-se a quem já tem um usuário cadastrado no sistema. Pode falhar se não houver usuário
 cadastrado com os dados fornecidos.
@@ -86,7 +86,7 @@ necessário ter um usuário logado. Esse usuário, identificado por campos já m
 criado. Os campos necessários na requisição para criação do perfil são:
 \begin{itemize}
   \item nome
-  \item lates
+  \item lates (referente ao id Lattes do pesquisador)
   \item abreviação
   \item instituição
   \item tipo de pesquisador (filologia, edição, programador, produtivo)
@@ -96,7 +96,6 @@ No primeiro momento, os cabeçalhos da resposta vão retornar valores praticamen
 segurança, é recomendável modificar os tokens de acesso a cada nova requisição. Isso está na lista de coisas a implementar.
 
 \subsubsection{Vendo um perfil \hfill figura \ref{fig:ver-perfil}}
-
 \begin{figure}[ht]
   \centering
   \includegraphics[width=.75\textwidth]{figuras/ver-perfil.png}
@@ -106,7 +105,7 @@ segurança, é recomendável modificar os tokens de acesso a cada nova requisiç
 
 A única coisa que é necessário para realizar essa requisição é ter um usuário autenticado (usando os campos de cabeçalho
 já mencionados) e um identificador de usuário. As requisições retornam os dados do perfil do usuário em questão ou de
-algum perfil específico. Vai dar erro se não houver um usuário autenticado.
+algum perfil específico. Um erro será observado se não houver um usuário autenticado.
 
 \subsubsection{Log-off \hfill figura \ref{fig:saindo}}
 
@@ -117,14 +116,14 @@ algum perfil específico. Vai dar erro se não houver um usuário autenticado.
   \label{fig:saindo}
 \end{figure}
 
-A requisição usada para sair do perfil/sessão. Precisa apenas de alguém logado, e não retorna dados muito relevantes.
+Trata-se da requisição usada para sair do perfil/seção. Precisa apenas de alguém logado, e não retorna dados muito relevantes.
 
 \subsection{Interface de usuário}\label{subsec:gui}
 
 A interface do usuário foi a última parte a ser desenvolvida, e ficou incompleta. Entretanto, já conta com todos os
 conteúdos estáticos do site original, e as mesmas cores básicas\footnote{Graças a um programa que detecta especificamente
 que cor está no espaço apontado chamado \href{http://www.gpick.org/}{Gpick}}. Além disso, o sistema de log-in está
-concluído e funcionando, sendo esse meu ponto de parada antes da entrega. Abaixo encontram-se duas capturas de telas para
+concluído e funcionando. Abaixo encontram-se duas capturas de telas para
 ilustrar como está a página atualmente
 
 \begin{figure}[htb]
@@ -137,20 +136,20 @@ ilustrar como está a página atualmente
 
 \subsection{O moedor}\label{subsec:o-moedor}
 
-Como foi dito na sessão \ref{sec:proposta}, o moedor é um punhado gigantesco de código com uma necessidade enorme de
+Como foi dito na seção \ref{sec:proposta}, o moedor é um punhado gigantesco de código com uma necessidade enorme de
 ser refatorado. Não porque é ruim ou está incorreto, mas por estar extremamente confuso, com as responsabilidades
 misturadas, funções enormes\footnote{Sendo a maior a \texttt{processa\_contextos} com exatas 962 linhas à época da
-contagem}. A função \texttt{initialize} também precisam de modificações, mas fica para a list de refatorações a fazer.
+contagem}. A função \texttt{initialize} também precisa de modificações, mas será deixada para futuros trabalhos.
 
-A ideia é mover para os \emph{helpers} tudo exceto pela função de inicialização e de leitura. O que for para os helpers,
-será testado.
+A ideia é mover para os \emph{helpers} tudo exceto pelas funções de inicialização e de leitura.
+O que for para os helpers, será testado.
 
 \subsection{Testes e cobertura}
 \label{subsec:testes-cobertura}
 
 Uma das propostas do projeto era ter uma cobertura razoável de testes. Na aplicação Rails isso foi feito de fato. No
-aplicação Nuxt, entretanto, não foi possível\footnote{Motivo expresso na sessão \ref{subsec:no-tests-for-nuxt}}. Tendo
-dito, aqui está uma captura de tela que comprova a cobertura de testes no back end no momento da entrega de monografia. Este
+aplicação Nuxt, entretanto, não foi possível\footnote{Motivo expresso na seção \ref{subsec:no-tests-for-nuxt}}.
+Aqui está uma captura de tela que comprova a cobertura de testes no back end no momento da entrega de monografia. Este
 relatório é produzido por uma gema chamada \texttt{simple-cov}. Ao executar os testes, o sistema entra em ação e gera um
 painel que permite ao desenvolvedor saber que módulos ou classes precisam de mais cobertura.
 

@@ -3,7 +3,7 @@
 \label{cap:development}
 \minitoc
 
-\intro{Neste capítulo encontram-se reflexões spbre decisões de projeto que foram tomadas e uma reflexão sobre cada uma.
+\intro{Neste capítulo encontram-se reflexões sobre decisões de projeto que foram tomadas e uma reflexão sobre cada uma.
 As reflexões estão agrupadas em temas, de forma que o conteúdo fique bem organizado. A ideia, desde o início é que este
 capítulo tivesse a feição de uma página de perguntas e respostas.}
 
@@ -14,22 +14,23 @@ capítulo tivesse a feição de uma página de perguntas e respostas.}
 
 No caso do back-end, o Ruby on Rails fora utilizado por alguns motivos. O primeiro, e mais importante é a
 continuidade. Como é de conhecimento entre aqueles com maior participação no projeto, o DELPo já foi
-desenvolvido em PHP, algumas partes em Pearl, depois Django, e agora em Rails. Muita migração já aconteceu,
+desenvolvido em PHP, algumas partes em Perl, depois Django, e agora em Rails. Muita migração já aconteceu,
 e outra estaria praticamente fora de cogitação.
 
 Outro motivo é o fato de que a fluência do aluno em Rails é infinitamente maior em Ruby que Python. Além do
 mais, não é só o desenvolvimento que importa: os testes são cruciais, e não há uma ferramenta de testes com
-que o aluno esteja perfeitamente familiarizado. Eu precisaria passar por outra curva de aprendizado que, pequena
-ou grande, representaria um tempo perdido para essa aplicação em específico.
+que o aluno esteja perfeitamente familiarizado. Seria necessário passar por outra curva de aprendizado que,
+pequena ou grande, representaria um tempo perdido para essa aplicação em específico.
 
 A fluência e experiência no uso de RSpec também foram fatores determinantes na escolha desta ferramenta. A
 escolha do Vue e Nuxt.js também se deve a esses fatores.
 
-Não há muito que se possa falar sobre Angular.js, dado que pouco conheço da ferramenta. Aprender sobre a
-ferramenta enquanto a aplicação é feita parece uma ideia pouco sábia a nível estratégico. O aluno responsável
-por este trabalho conhece um pouco mais sobre React.js, e isso já é suficiente para gerar um desconforto e
-rejeição em relação ao framework. Tal rejeição se deve ao fato de que ainda que Vue e React sejam parecidos
-em alguns aspectos, o código em um componente do último não possui a organização estrutural que o Vue tem.
+Não há muito que se possa falar sobre Angular.js, dado que o aluno pouco conhece da ferramenta, e aprender
+sobre a ferramenta enquanto a aplicação é feita parece uma ideia pouco sábia a nível estratégico.
+O aluno responsável por este trabalho conhece um pouco mais sobre React.js, e isso já é suficiente para gerar
+um desconforto e rejeição em relação ao framework.
+Tal rejeição se deve ao fato de que ainda que Vue e React sejam parecidos em alguns aspectos, o código em um
+componente do último não possui a organização estrutural e visual que o Vue tem.
 Essa organização, chamada de \emph{Code Splitting}, além de tornar o código mais legível, torna possível que
 algumas partes do componente sejam pré carregadas e outras sejam carregadas por demanda.
 
@@ -52,8 +53,7 @@ parecer o melhor dos motivos, mas justamente pelo fato dessas ferramentas \say{j
 da camada de apresentação é que o resultado esperado é bem melhor.
 
 Além disso, desenvolvendo a aplicação Rails em modo API, permite-se separar quem atende o cliente (o back-end),
-de quem o serve (front-end), delimitando tarefas e papeis. Facilitando aos pŕoximos desenvolvedores se concentrarem
-em apenas um lado da aplicação
+de quem o serve (front-end), delimitando tarefas e papeis. Facilitando aos próximos desenvolvedores se concentrarem em apenas um lado da aplicação
 
 De fato, a quantidade de trabalho aumentou. Nem tanto pela adoção do modo API que não dá muito trabalho, mas por
 razões que envolvem a próxima pergunta.
@@ -62,13 +62,13 @@ razões que envolvem a próxima pergunta.
 \label{subsec:refatorar}
 
 Além da mudança de modos, a necessidade de reescrever controladores e modelos foi o maior motivo. O fato de não
-compreender completamente algumas decisões de projetos dos alunos que tomaram o projeto no ano seguinte me fizeram
-tomar a decisão de criar uma segunda branch na qual eu deletei controladores, modelos e as tabelas para fazer tudo
+compreender completamente algumas decisões de projetos dos alunos que tomaram o projeto no ano passado levou à
+decisão de criar uma segunda branch na qual foram deletados controladores, modelos e as tabelas para fazer tudo
 de novo. Parece um esforço tolo, mas era necessário dado o travamento advindo da incompreensão de partes da aplicação.
 
 Mas por que não consultar os alunos do ano passado? Isso foi feito, mas de forma limitada porque o responsável atual
-só tem contato recorrente com um deles. Este me ajudou no que pode. Mas haviam outras dúvidas, e com elas eu não
-poderia garantir a qualidade do código, e não conseguiria fazer os testes (não é possível testar o que não se
+só tem contato recorrente com um deles, que ajudou em tudo que pode. Mas haviam outras dúvidas, e com elas, não
+era possível garantir a qualidade do código nem a implementação de testes (não é possível testar o que não se
 conhece)
 
 Os controladores, pensados para fornecer dados para construir as páginas ERB tinham, por vezes, mais de uma
@@ -83,14 +83,15 @@ encaixes ficariam melhor, como os testes seriam mais fáceis de fazer.
 
 \subsection{Como será o desenvolvimento do front end?}\label{subsec:desenvolvimento}
 
-O desenvolvimento do front será feito em Nuxt.js. O foco principal é na construção do moedor e do sistema de login.
-Como nem todos os controladores foram construídos, trabalhar-se-á nas duas pontas (Front e Back). Nesta fase, o TDD
-será deixado um pouco de lado, para que o desenvolvimento seja mais rápido. Recomendações de estilo de código, como
-as vistas neste \href{https://br.vuejs.org/v2/style-guide/index.html}{link} serão seguidas na medida do possível.
+O desenvolvimento do front será feito em Nuxt.js. O foco principal é na construção da interface do moedor 
+e do sistema de login. Como nem todos os controladores foram construídos, trabalhar-se-á nas duas pontas
+(Front e Back). Nesta fase, o TDD será deixado um pouco de lado, para que o desenvolvimento seja mais rápido.
+Recomendações de estilo de código, como as vistas neste \href{https://br.vuejs.org/v2/style-guide/index.html}{link} serão seguidas na medida do possível.
 
-Outra coisa que será observada no desenvolvimento será as regras de bom código, como a responsabilidade única, por
-exemplo. Para aplicar este princípio, a ideia é criar componentes que exibam um tipo de dado ou que tenha uma função
-específica. Trata-se, é claro, da situação ideal, e do desejo do aluno em questão.
+Outra coisa que será observada no desenvolvimento será as regras de bom código mencionadas no capítulo 
+\ref{cap:main-concepts}, como a responsabilidade única, por exemplo. Para aplicar este princípio, cria-se 
+componentes que exibam um tipo de dado ou que tenha uma função específica. Trata-se, é claro, da situação
+ideal, e do desejo do aluno.
 
 \section{Decisões de código}\label{sec:decisoes}
 
@@ -115,11 +116,11 @@ Antes de começar a falar sobre essas entidades, vale saber que à dupla \kw{Fle
 aplica-se o que será dito aqui.
 
 No caso dessa entidade, não era trivial o que ela fazia. Conversando com o professor, percebi que a segunda
-entidade funcionava tal qual uma lista ligada simples onde o mais novo ligava-se ao mais velho, e assim vai.
-O lado bom de fazer isso é que manter o registro de que pesquisador colocou uma determinada acepção. Além de
-ser fácil remover, caso necessário for, pode ser fácil de averiguar a cronologia das acepções. A cabeça da lista
-era o mais recente, e a instância na tabela acepção tinha uma chave estrangeira para essa cabeça. Veja como
-estava implementado.
+entidade funcionava tal qual uma lista ligada simples onde o mais novo ligava-se ao mais velho, e assim por
+diante. O lado bom de fazer isso é que manter o registro de que pesquisador colocou uma determinada acepção.
+Além de ser fácil remover, caso necessário for, pode ser fácil de averiguar a cronologia das acepções. A cabeça
+da lista era o mais recente, e a instância na tabela acepção tinha uma chave estrangeira para essa cabeça. Veja
+como estava implementado.
 
 \begin{figure}[htb]
     \centering
@@ -129,9 +130,9 @@ estava implementado.
 \end{figure}
 
 Mas havia um problema nessa implementação. O campo de ligação entre \kw{Acepção} e \kw{Histórico Acepção} só
-ajuda a verificar o mais atual. Para descobrir o meis antigo (para achar o \emph{Terminus a quo} -- taq), é
-necessário fazer de 0 a $n$ operações \texttt{JOIN} aumentando muito o custo da pesquisa por esta informação.
-Trata-se de um potencial gargalo.
+ajuda a verificar o mais atual. Para descobrir o mais antigo (ou seja, para achar o \emph{Terminus a quo} --
+taq), é necessário fazer de 0 a $n$ operações \texttt{JOIN} aumentando muito o custo da pesquisa por esta
+informação. Trata-se de um potencial gargalo.
 
 Antes de pensar nas mudanças, bom pensar a razão de se precisar das instâncias mais antiga e mais recente. A
 importância da mais antiga se deve ao fato de que, através dela, pode-se conhecer a data aproximada ou real
@@ -196,9 +197,10 @@ ficar nas tabelas principais}. O erro principal desse raciocínio é o que uma o
 não serão responsáveis por um gargalo tão grande assim. Além do mais, a implementação pode diminuir esse impacto.
 
 Um outro fator a considerar é \href{https://pt.wikipedia.org/wiki/Lei_de_Demeter}{Lei de Demeter}. Segundo ela, é
-importante que uma classe saiba muito pouco ou quase nada das outras classes. Utilizar Esse princípio não impediria
-que se colocasse esses campos na tabela de acepções. Entretanto, ao implementar dessa forma, o projeto fica menos
-acoplado, e portanto, mais flexível e menos difícil de escalar.
+importante que uma classe saiba muito pouco ou quase nada das outras classes.
+Utilizar este princípio não impediria que se colocasse esses campos na tabela de acepções.
+Entretanto, ao implementar dessa forma, o projeto fica menos acoplado, e portanto, mais flexível e menos difícil
+de escalar.
 
 \paragraph{Nas operações de remoção de históricos de acepções o desempenho médio é pior considerando-se a solução
 nova. Isso não pode ser um problema?}
@@ -209,12 +211,13 @@ menos frequentes pelo cliente, enquanto as operações mais repetidas tiveram um
 \subsection{N -- Por que a implementação do design pattern Builder foi abandonada na criação de formulários no front end?}
 \label{subsec:nuxt-left-design-pattern-builder}
 
-A ideia inicial no que diz respeito aos formulários, é que haveria uma classe Javascript que geraria os formulários. Mas
-por que fazer assim e não um formulário por vez?
+A ideia inicial no que diz respeito aos formulários, é que haveria uma classe Javascript que geraria os
+formulários.
+Mas por que fazer assim e não um formulário por vez?
 
 O motivo é que fazer vários formulários pode resultar em repetição de código. Fazer isso não é pecado, mas reduz
-a qualidade do código. Além do mais, código repetido pode requerer testes com mais código duplicado, reduzindo a ainda
-mais a qualidade do código, sem mencionar a necessidade de se replicar determinadas mudanças.
+a qualidade do código. Além do mais, código repetido pode requerer testes com mais código duplicado, reduzindo
+ainda mais a qualidade do código, sem mencionar a necessidade de se replicar determinadas mudanças.
 
 Exite uma troca inerente no processo. Buscar um sistema mais enxuto e escalável implica, na maioria das ocasiões, em um
 aumento (considerável ou não) de complexidade. Entretanto, uma vez implementado um construtor de formulários, pode-se
@@ -224,26 +227,27 @@ como aplicar alguns design patterns no desenvolvimento com Vue.js. O vídeo dest
 Conference Videos \dir VueConf US 2019, e \href{https://read-and-watch.github.io/videos/RF1bbhRw9sg/index.html}{neste link}
 se precisar de legendas para o vídeo.
 
-\paragraph{Por que então os formulários não foram implementados desta forma então?} Ao tentar implementar uma solução
-similar, tive dificuldade, pois não sabia como passar os dados da requisição HTTP para o back end. Para evitar maiores
-atrasos, decidi criar múltiplos componentes. Passado o prazo do TCC, é uma coisa que adoraria fazer com mais calma.
+\paragraph{Por que então os formulários não foram implementados desta forma então?} Ao tentar implementar uma
+solução similar, houveram dificuldades relacionadas a como seria possível fazer uma requisição de dados para o
+back end dentro daquela implementação.
+Para evitar maiores atrasos, decidiu-se criar múltiplos componentes.
+Mesmo passado o prazo do TCC, será um trabalho a fazer com mais calma.
 
 \subsection{N -- Existe uma quantidade considerável de código repetido no front. Isso não é algo ruim?}
 \label{subsec:no-dry}
 
-De fato. Em diversos momentos do desenvolvimento foi dito que repetir código era uma má prática, e não deixou de ser. O
-problema, entretanto, foi conciliar a vontade de fazer a melhor aplicação, com o melhor código, o mais limpo possível,
-com a necessidade do DELPo de estar de pé. Não posso faltar com o respeito com os integrantes do NEHiLP, e entregar algo
-que não funcione, mas também não posso escrever um código porco que a curto prazo nenhuma viva alma seria capaz de
-compreender. Provavelmente é uma das coisas em que mais preciso amadurecer, e pude aprender um pouco mais com esse projeto.
+De fato. Em diversos momentos do desenvolvimento foi dito que repetir código era uma má prática, e não deixou
+de ser. O problema, entretanto, foi conciliar a vontade de fazer a melhor aplicação, com o melhor código, o
+mais limpo possível, com a necessidade do DELPo de estar de pé.
 
 \subsection{Por que não há testes feitos para o front end?}\label{subsec:no-tests-for-nuxt}
 
-O motivo principal para não haver testes para o front é que o planejamento inicial previa aproveitar o conteúdo do curso
-\href{https://vueschool.io/courses/learn-how-to-test-vuejs-components}{\say{Testing Vue.js Components}} fazendo os testes
-para a aplicação do front. Como eu desconheço quaisquer outras ferramentas de teste para Javascript, e o Jest é muito
-parecido com o RSpec, e eu tinha um curso bem estruturado (os cursos desta plataforma são muito bons), decidi optar por
-ela, memso correndo o risco de ficar sem esses testes de front.
+O motivo principal para não haver testes para o front é que o planejamento inicial previa aproveitar o conteúdo
+do curso \href{https://vueschool.io/courses/learn-how-to-test-vuejs-components}{\say{Testing Vue.js Components}}
+fazendo os testes para a aplicação do front.
+Como outras ferramentas de teste para Javascript não estão no domínio de habilidades do aluno responsável, o
+Jest é muito  parecido com o RSpec, e há um curso bem estruturado mais disponível, decidiu-se optar por ela,
+mesmo correndo o risco de ficar sem esses testes de front.
 
 \section{A aplicação está pronta? Como isso impacta os resultados esperados?}
 \label{sec:is-it-ready}
@@ -251,19 +255,16 @@ ela, memso correndo o risco de ficar sem esses testes de front.
 Não. A aplicação não está completa em nenhum dos dois lados. Ela está funcional, mas falta juntar essas peças que foram
 verificadas.
 
-No back end, tudo o que estava funcionando  na versão anterior, continua funcionando nesta também. A diferença é a
-qualidade do código, e algumas otimizações, sem contar na melhor organização do projeto. Aliás, adiantando uma das
-reflexões na sessão \ref{sec:lessions}, aprendi um pouco com esse projeto como balancear o ímpeto de fazer um código
-seguindo design patterns e um código que fique pronto em tempo hábil. Houveram múltiplas ocasiões em que se perderam dias,
-semanas ou ainda mais tempo pensando em como fazer determinada funcionalidade da melhor forma ao invés de simplesmente
-fazer acontecer.
+No back end, tudo o que estava funcionando  na versão anterior, continua funcionando nesta também. A diferença
+é a qualidade do código, e algumas otimizações, sem contar na melhor organização do projeto. Houveram múltiplas
+ocasiões em que se perderam dias, semanas ou ainda mais tempo pensando em como fazer determinada funcionalidade da melhor forma ao invés de simplesmente fazer acontecer. Isso é algo a aprender
 
-Se por um lado, o desenvolvimento ocorreu num ritmo reduzido, por outro, o código resultante apresenta uma qualidade
-formidável:
+Se por um lado, o desenvolvimento ocorreu num ritmo reduzido, por outro, o código resultante apresenta uma
+qualidade bem razoável levando-se em conta os preceitos mencionados no capítulo \ref{cap:main-concepts}:
 \begin{itemize}
     \item grande encapsulamento entre classes
     \item pouquíssimo código repetido (concentrados na parte do front e nos testes do Rails)
-    \item extensa cobertura de testes (não tive tempo de testar os componentes do front)
+    \item extensa cobertura de testes (não houve tempo de testar os componentes do front devidamente)
     \item as dependências entre componentes não engessam a aplicação
 \end{itemize}
 
@@ -274,8 +275,8 @@ problemas como acontece atualmente.
 Outra coisa a se observar quanto ao desenvolvimento Rails é observar que nada se perdeu apesar da grande reconstrução
 feita. O controlador do moedor ainda não foi implementado ainda, mas todo o arcabouço funcional por trás disso está.
 Como verificar isso? Simples. Tudo funcionava antes da grande refatoração, então basta levar em conta o que se passa com
-cada parte do código. O que foi modificado agora funciona sem sombra de dúvida, e da mesma maneira (dado que o que foi
-mudado foi a forma de fazer o código e não o que este fazia). O que não foi alterado ainda se encaixa com o resto do
+cada parte do código. O que foi modificado certamente funciona, e da mesma maneira (dado que o que foi
+mudado foi a forma de fazer o código e não o que este fazia) que antes de refatorar. O que não foi alterado ainda se encaixa com o resto do
 código pois nada foi modificado ali em termos de funcionamento.
 
 Um grande avanço observado foi na interface. Ela estava muito crua no início do ano, e agora ela apresenta um grande
@@ -283,8 +284,8 @@ dinamismo. Ainda que o seu desenvolvimento esteja na fase de construção do sis
 gestão de tokens, e pareça \say{cru}, é claro que não há muito o que deixar para o próximo desenvolvedor\footnote{Ainda
 que eu pretenda continuar a fazer o projeto mesmo depois de concluído o TCC.}.
 
-Respondendo a última parte da pergunta, com certeza não vou receber um 10 por este trabalho. No entanto, se se levar
-em conta o balanço do que foi feito e do que não foi, perceber-se-á que o saldo foi extremamente positivo. Veja abaixo.
+Respondendo a primeira parte da pergunta, não. A aplicação não está pronta. No entanto, se se levar em conta
+o balanço do que foi feito e do que não foi, perceber-se-á que o saldo foi positivo. Veja abaixo.
 
 \begin{table}[h]
     \centering
@@ -292,7 +293,7 @@ em conta o balanço do que foi feito e do que não foi, perceber-se-á que o sal
         \hline
         \multicolumn{3}{|c|}{Atividades} \\ \hline\hline
         Concluídas & Não Concluídas & Não iniciadas \\ \hline
-        Refatorar o banco dedados & Fazer uma interface de  & Adaptação dos dados \\
+        Refatorar o banco de dados & Fazer uma interface de  & Adaptação dos dados \\
         & usuário agradável (60\%) & do outro banco de dados \\ \hline
         Refatoração dos modelos  & Fazer os testes no back (73\%) & Fazer os testes do front \\
         e controladores & & \\ \hline

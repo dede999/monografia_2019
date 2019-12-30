@@ -6,8 +6,7 @@ de informação etimológica disponível se comparado com outros idiomas români
 vistas a minorar esse problema, alguns projetos de pesquisa buscam métodos de otimizar a
 obtenção de registros. O projeto DELPo é um ótimo exemplo. Através de um algoritmo
 \textit{moedor} que recebe um arquivo, registram-se ocorrências, lemas e flexões que
-auxiliam a monitorar que elementos são mais recentes. Este fluxo mimetiza o algoritmo que
-se aplica a cartões físicos.
+auxiliam a monitorar que elementos são mais recentes. 
 
 O projeto já conta com um portal web em produção. Este trabalho, entretanto, era feito em PHP,
 e havia alguns gargalos na aplicação. Alguns foram removidos ano passado, outros estão sendo
@@ -40,14 +39,14 @@ oportunidades que aparecerão dado que quem faz um excelente serviço poderá fa
 Do contrário, um serviço mal feito, um software de qualidade duvidosa não vai abrir portas ao
 aluno, que nem se daria ao trabalho de mostrar algo mal-feito.
 
-\textbf{Verificar a importância real de um código limpo.} Ao início da graduação, o aluno incauto
+\textbf{Verificar a importância real de um código limpo.} No início da graduação, um aluno comum
 pode fazer uma vaga ideia, mas jamais entenderá a importância de fazer um código legível
 \footnote{Salvo o caso desse aluno já tiver alguma experiência com programação}. Isso muda quando
 o aluno têm contato com um código ilegível. A dificuldade em refatorar o código, entender o que se
 deseja, ou até mesmo a necessidade de refazer grandes partes daquele programa será traumática o
 bastante para que o aluno passe a se preocupar com o que ele faz.
 
-Mas o que é um código de limpo? Segundo \citeauthor{CCL}, é um código que pode ser lido, compreendido,
+Mas o que é um código limpo? Segundo \citeauthor{CCL}, é um código que pode ser lido, compreendido,
 melhorado, estendido e mantido por qualquer outro desenvolvedor.
 
 Ele fez um trabalho importantíssimo ao juntar vários preceitos em um só documento. Um grande punhado
@@ -55,7 +54,7 @@ de convenções (ou conselhos, se preferir) para quem deseja fazer um código ex
 mais de 50 \say{leis}, é um tanto trabalhoso que sigam-se todas elas, mas com certeza se trata de um bom
 ponto de partida.
 
-Na sessão \ref{sec:boas-praticas} encontram-se algumas diretrizes da produção de bom código.
+Na seção \ref{sec:boas-praticas} encontram-se algumas diretrizes da produção de bom código.
 
 \section{Sobre a proposta} \label{sec:proposta}
 
@@ -68,7 +67,7 @@ Vale saber, além dos objetivos supra citados, qual é a proposta geral desse tr
     com o que o \citetalias{MN2} determina
     \item melhoramento do sistema moedor \footnote{vide p.\pageref{subsec:moagem}}
     \item Permitir que a plataforma esteja disponível para uso da melhor forma possível. Ainda que isso
-    implique que algumas refatorações e melhorias ficarem de lado.
+    implique que algumas refatorações e melhorias tenham ficado de lado.
 \end{itemize}
 
 O moedor que há na aplicação atual é enorme e exige grande refatoração. Entretanto, como o tempo disponível não 
@@ -76,7 +75,7 @@ era o bastante para sanar os problemas observados, o que será feito são alguma
 remoção dos desnecessários, entre outras medidas. A ideia é que, na medida do possível, as funções fiquem mais
 fáceis de entender, e o código ganhe em inteligibilidade. O moedor tem dois módulos: o de leitura e o de análise.
 
-O primeiro trata de quebrar o texto em contextos (orações) e palavras. Cada quais destas é analisada com o
+O primeiro trata de quebrar o texto em contextos (orações) e palavras. Cada qual destas é analisada com o
 objetivo de encontrar sua forma básica\footnote{por exemplo, abrindo \dir abrir}, procurar se ela existe no
 banco, bem como datar e retrodatar de acordo com o que for necessário. Os resultados obtidos são armazenados
 em uma tabela de mesmo nome.
@@ -116,8 +115,8 @@ do moedor ainda é um pesadelo para quem se aventura a refatorá-lo.
 
 O passo 3 também exigiu um bom tempo. Inicialmente tentou-se fazer menores alterações e manter
 o código. Isso seria muito menos trabalhoso, e demandaria menos tempo também. O que se observou,
-entretanto é que fazer mudanças específicas não era tão simples quanto parecia, ou quanto de fato
-seria se estivesse com um dos membros da antiga equipe consigo. Dessa forma, decidiu-se refazer as
+entretanto, é que fazer mudanças específicas não era tão simples quanto parecia. Ou quanto de fato
+seria se houvesse um dos membros da antiga equipe trabalhando neste projeto. Dessa forma, decidiu-se refazer as
 tabelas com base nas que já tinham sido feitas. Enquanto os modelos ficavam prontos e se conectavam,
 os testes cobriam se as determinações e os relacionamentos foram realmente estabelecidos.
 
@@ -145,7 +144,7 @@ jargão a ser utilizado. Detalhes a serem esclarecidos para que o cérebro do le
 que ele compreenda) o conteúdo das páginas que se seguirão.
 
 No capítulo 3, \textbf{Sobre o desenvolvimento}, tratar-se-ão de detalhes técnicos sobre a implementação. Será uma
-descrição a dois níveis, sendo a primeira, uma descrição verbal, e o seguinte, a nível de implementação.
+descrição de dois tipos: sendo a primeira, uma descrição verbal, e a outra, em nível de implementação.
 
 No capítulo 4, \textbf{Dos resultados obtidos}, encontra-se uma reflexão sobre o que se passou além do código, o que
 está pronto e o que pode ser feito no futuro.

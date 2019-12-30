@@ -79,7 +79,7 @@ primeira ocorrência a data associada estará.
 \subsubsection{A lexicografia e a definição de lema}
 \label{subsubsec:lexicografia-lema}
 
-Pelo que aponta \citep[p.~20]{Bar:14}, a lexicografia é o estudo que permitiu o
+Pelo que aponta \citet[p.~20]{Bar:14}, a lexicografia é o estudo que permitiu o
 desenvolvimento de métodos e técnicas de produção de dicionário seja ele de que
 tipo for. Percebe-se que o trabalho de elaboração de dicionários dependende por
 completo dos estudos desta área.
@@ -104,7 +104,7 @@ dados}\label{subsubsec:tratamento-computacional-dos-dados}
     \label{fig:dados-hierarquia}
 \end{figure}
 
-Acima enconrtam-se termos criados com o único intuito de facilitar o tratamento
+Acima encontram-se termos criados com o único intuito de facilitar o tratamento
 computacional dos dados a serem manipulados.
 
 O \kw{Metalema} se trata de um conjunto de letras único e dotado de significado,
@@ -138,7 +138,7 @@ acepções do metalema \texttt{muito} e portanto não remetem a \texttt{muitos} 
 suas respectivas flexões.
 
 Convém observar que uma sigla, ainda que se trate de um tipo singular de abreviatura, será
-tratada como metalema ao invés de um metalema. Isso acontece pois há siglas que se assemalham
+tratada como metalema ao invés de um hemilema. Isso acontece pois há siglas que se assemalham
 a nomes comuns\footnote{Crea, por exemplo} e só um pesquisador conseguiria classificá-las
 da forma apropriada.
 
@@ -171,7 +171,7 @@ ultralema:
 \label{sec:back-end}
 
 Antes de entrar no mérito da definição de back e front end, é conveniente explicar o porquê da
-separação dos tópicos. Além da obvia separação entre os dois repositórios, deve-se pelo fato de
+separação dos tópicos. Além da óbvia separação entre os dois repositórios, deve-se pelo fato de
 constituírem diferentes camadas do mesmo sistemas. Camadas distintas, desenvolvidas de outras
 maneiras e com ferramentas distintas.
 
@@ -183,7 +183,7 @@ o que está se passando.
 \label{subsec:ruby}
 
 Ruby é uma linguagem de programação orientada a objetos criada por Yukihiro
-Matsumoto em 1993. Ruby pode ser considerada como que um encontro entre Python,
+Matsumoto em 1993. Ruby pode ser considerada um encontro entre Python,
 Perl e Smalltalk. Por ser uma linguagem tão versátil e permitir que o
 desenvolvedor concentre melhor suas energias em fazer o algoritmo\footnote{ao
 invés de ficar lutando contra a programação}  como disseram \citet{Rcook:09}, e
@@ -204,17 +204,18 @@ muitos}). Além da obra de \citet{Rcook:09}, o site
 \href{https://www.tutorialspoint.com/ruby/index.htm}{\textbf{Tutorials Point}}
 também é uma boa sugestão quando se precisa de alguma ideia, ou em momento de dúvida.
 
-O livro, tal como o título e os próprios autores \cite[xvii]{Rcook:09} sugerem, é um
+O livro, tal como o título e os próprios autores \citet[xvii]{Rcook:09} sugerem, é um
 livro de receitas. Apresenta soluções para problemas comuns e pequenos tutoriais. A
 página, como o nome diz, é um compilado de tutoriais e é perfeito para quando há
-dúvidas pontuais. A figura na sessão sobre RSpec é um print tirado da página.
+dúvidas pontuais.
 
 Quando a pesquisa visa compreender os limites do Ruby e do Rails, olhar a documentação
 oficial é a melhor solução. Por se tratar de múltiplas páginas, não achei conveniente
 colocar todas na bibliografia, senão o guia do Rails. No entanto, uma pesquisa com as
 palavras chave \say{ruby}, o nome da classe a explorar e \say{docs} ajudam muito, também.
-Pesquisar por gemas pra fazer algo por você também gera ótimos resultados (foi assim que
-encontrei uma gema que transforma números romanos em decimais e vice-versa.)
+Pesquisar por gemas pra fazer algo no lugar do programador também gera bons resultados, sem
+mencionar o tempo e energia poupados. Um bom exemplo é a gema que transforma números romanos
+em decimais e vice-versa.
 
 \begin{figure}
     \centering
@@ -226,7 +227,7 @@ encontrei uma gema que transforma números romanos em decimais e vice-versa.)
 \subsection{Rails}
 \label{subsec:rails}
 
-Segundo \cite[p.~613]{Rcook:09}, \citetalias{RoR} (ou só Rails) é o que há de melhor
+Segundo \citet[p.~613]{Rcook:09}, \citetalias{RoR} (ou só Rails) é o que há de melhor
 no universo Ruby, e ainda que ele não reinvente a roda em algum aspecto (utilizando-se
 do que já foi verificado e validado como o próprio Active Record\footnote{responsável
 por mapear os objetos criados no código em modelos e relacionamentos} e o paradigma MVC
@@ -235,7 +236,7 @@ por mapear os objetos criados no código em modelos e relacionamentos} e o parad
 Sobre o primeiro, convém saber que é o maior, senão o único responsável por \say{proteger}
 o desenvolvedor de dores de cabeça com scripts de migrações e pesquisas e views nos
 bancos de dados. Não que o desenvolvedor não possa colocá-las ali, mas dificilmente
-haja uma pesquisa que não se possa fazer sem a sua
+há uma pesquisa que não se possa fazer sem a sua
 \href{https://guides.rubyonrails.org/active_record_querying.html}{interface de busca}.
 É um grande exemplo do que foi dito no início da sub-seção \ref{subsec:ruby} sobre
 preocupar-se mais com o algoritmo a ser desenvolvido que com a linguagem em si.
@@ -253,7 +254,7 @@ utilizam mais de um framework). A sigla junta as iniciais das palavras \emph{mod
     \emph{ActionView}, um sistema baseado em ERb\footnote{Embedded Ruby} para apresentar as
     views.
     \item[controller] fica no meio dos dois anteriores, e também é responsável por lidar com
-    as requisições. De um lado, pega os dados necessários, de outro, organiza-os e manda pras
+    as requisições. De um lado, pega os dados necessários, de outro, organiza-os e manda para as
     views. É responsabilidade do \emph{ActiveController}
 \end{description}
 
@@ -287,11 +288,11 @@ fornece algumas outras como a proteção a ataques como o de IP Spoofing.
 
 Provar que um método funciona $100\%$ das vezes requer, por vezes, uma prova
 formal. Testes, de qualquer natureza (seja de integração ou unitário), têm como
-finalidade garantir que o método vai dar a resposta coreeta nos cenários apontados.
+finalidade garantir que o método vai dar a resposta correta nos cenários apontados.
 
 Vale dizer também, que em um sistema robusto e cheio de funcionalidades, provar
 formalmente que tudo está em perfeito estado é um trabalho hercúleo e cansativo
-sem contar que é um grande redutor de produtividade. É por isso que que se faz
+sem contar que é um grande redutor de produtividade. É por isso que se faz
 necessária a construção de testes. Praticamente todo aluno de computação passou
 por dificuldades ao caçar problemas em trabalhos no início de sua graduação.
 Estes provavelmente saberão melhor o quanto convém ter um conjunto de testes
@@ -300,7 +301,7 @@ para as funções criadas.
 Para produzir os testes que garantem, na medida do possível, a consistência e o
 funcionamento completo do portal, esse projeto conta com RSpec. Diferentemente de
 outras ferramentas de teste, o seu foco é no comportamento das funções\footnote{
-BDD -- Behavior Driven Development} como podemos observar na figura\ref{fig:rspec}.
+BDD -- Behavior Driven Development} como podemos observar na figura \ref{fig:rspec}.
 Trata-se da ferramenta mais adequada para garantir que os métodos e requisições a
 serem desenvolvidos seguirão o comportamento esperado.
 
@@ -313,16 +314,15 @@ serem desenvolvidos seguirão o comportamento esperado.
 \section{O Front-end}
 \label{sec:front-end}
 
-Como havia dito na seção \ref{subsec:rails}, há um ponto negativo no Rails relativo à
+Como mencionado na seção \ref{subsec:rails}, há um ponto negativo no Rails relativo à
 \say{filosofia} do Rails em adotar muitas convenções. Se por um lado isso realmente facilita
 a vida do programador, por outro lado, pode impossibilitá-lo de fazer determinadas coisas.
-Em outras palavras, pode-se dizer que Rails é maravilhoso quando se seguem os padrões, mas
-pode virar uma dor de cabeça se quiser fazer as coisas da forma como o desenvolvedor
-prefere.
+Em outras palavras, pode-se dizer que a experiência de usar Rails é boa quando se seguem os 
+padrões, mas pode virar uma dor de cabeça ao tentar algo que foge muito aos padrões da ferramenta.
 
 Por exemplo: não seria impossível usar algum framework Javascript para as views do Rails, mas
 o trabalho necessário para produzir uma solução adequada é muito maior que usar o Rails como
-API e fazer uma aplicação em Nuxt.JS a parte.
+API com uma aplicação em Nuxt.JS a parte.
 
 \subsection{Vue JS}\label{subsec:vue-js}
 
@@ -330,20 +330,20 @@ Segundo o guia oficial, Vue (pronunciado como $/vju/$ \dir \textbf{view}), é um
 voltada à produção de interfaces de usuário, sendo este o seu foco. No vídeo exibido na página
 principal do \citetalias{Vue}, podemos ver alguns de seus traços básicos.
 
-O principal forte é versátil. Mas em que sentido? A depender do que você precisa do Vue, há uma
-receita do que pode ser feito. Quer fazer um site estático? É possível. Quer uma ferramenta que
-completamete um back end (produzindo uma produção fullstack)? Dá pra fazer, também. Vue é uma
-\say{massinha de modelar} em questão de ferramenta javascript.
+O principal ponto forte é a versatilidade. Mas em que sentido? A depender do que se precisa do
+Vue, há uma receita do que pode ser feito. Quer fazer um site estático? É possível. Quer uma 
+ferramenta que complemente um back end (produzindo uma produção fullstack)? Dá pra fazer, também. 
+Vue é uma \say{massinha de modelar} com a qual se pode fazer bastante coisa.
 
 Vue também é uma ferramenta acessível. Além de se tratar de um projeto de software livre, qualquer
-um que tiver um bom domínio de HTML, CSS e JS podem utilizá-lo. Além disso, o programador que está
-entrando em uma equipe utilizando Vue provavelmente terá pouco trabalho em se inteirar do que foi
-feito. A curva de aprendizado pode ser incrivelmente suave, também.
+desenvolvedor que tiver um bom domínio de HTML, CSS e JS pode utilizá-lo. Além disso, o programador
+que está entrando em uma equipe utilizando Vue provavelmente terá pouco trabalho em se inteirar do
+que foi feito. A curva de aprendizado pode ser suave, também.
 
-Além disso, conta com uma grande quantidade de ferramentas afins construidas a partir dessa. Um
-exemplo ótimo é o \href{https://www.youtube.com/watch?v=lIv1ItUzktc}{\textbf{VuePress}}, uma
-ferramenta voltada a produção de documentação. Ao que parece, compila arquivos em \emph{Markdown}
-e o transformam em uma SPA (Single Page Application)
+Além disso, conta com uma grande quantidade de ferramentas afins construídas a partir dessa. Um
+exemplo disso é o \href{https://www.youtube.com/watch?v=lIv1ItUzktc}{\textbf{VuePress}}, uma
+ferramenta voltada à produção de documentação. Essa ferramenta compila arquivos em \emph{Markdown}
+e os transforma em uma SPA (Single Page Application)
 
 A figura \ref{fig:vue-example} mostra um componente Vue. Observe a separação clara do que é HTML e
 o que é Javascript. Abaixo da tag template (HTML) e script (JS), há uma tag style (CSS) que pode ser
@@ -360,18 +360,18 @@ aplicada somente àquele componente ou não.
 
 Baseado em seu guia oficial (está na bibliografia), Nuxt é um framework progressivo (ou seja, que
 pode servir como uma biblioteca javascript ou framework) baseado em Vue.js. Seu foco é o mesmo que
-o anterior, mas conta, por padrão, com muitas das bibliotecas que você deveria inserir manualmente
-no Vue. Esse é o motivo de dizer que Nuxt.js é um Vue com esteroides.
+o anterior, mas conta, por padrão, com muitas das bibliotecas que o desenvolvedor deve inserir 
+manualmente no Vue. Esse é o motivo de dizer que Nuxt.js é um Vue com esteroides.
 
-Longe de ser apenas uma versão fortificada do framework acima, Nuxt adota soluções para alguns dos
-seus problemas. Veja alguns desses.
+Longe de ser apenas uma versão fortificada do framework acima, Nuxt adota soluções para alguns
+problemas comuns. Veja alguns desses.
 
 Construir uma aplicação do zero não é trivial, e por isso talvez existam frameworks a facilitar tal
 tarefa. Vue.js é um bom exemplo, e facilita muito a vida do desenvolvedor. Entretanto, não é tão
 prático dado que a instalação inicial não inclui peças importantes como o
 \href{https://vuex.vuejs.org/}{\textbf{Vuex}} e \href{https://router.vuejs.org/}{\textbf{Vue Router}}.
-Não partes difíceis de incluir, mas é bem melhor quando elas estão pré-instaladas e configuradas,
-como vê-se implementado no Nuxt. Vale saber que muitas, senão todas as suas configurações padrão são
+Não é difícil incluí-las, mas é bem melhor quando elas estão pré-instaladas e configuradas,
+como vê-se implementado no Nuxt. Vale saber que muitas, senão todas as suas configurações padrão, são
 baseadas no que os desenvolvedores consideram boas práticas.
 
 Outra mudança notável é a organização das pastas e arquivos (veja a figura \ref{fig:file-system})
@@ -391,19 +391,19 @@ há uma pasta que concentre quase todo o código da aplicação. Ao invés disso
 abrigam códigos cuja natureza está descrita pelo nome do diretório.
 
 \emph{Search Engine Optimization}(SEO) é a propriedade de uma aplicação que facilita a  indexação e
-pesquisa de elementos nela presente. Isso pode ser feito em Vue, por exemplo. Mas a solução não é
+pesquisa de elementos nela presente. Isso pode ser feito em Vue, por exemplo. A solução não é
 difícil, mas envolve carregar página por página no servidor. Em uma plataforma menor talvez seja
 viável. Entretanto, quando o sistema ganha em complexidade e capilaridade, torna-se cada vez menos
-produtivo. O Nuxt é pré configurado para fazer essa ação por debaixo do pano, simplificando o
-trabalho do desenvolvedor.
+produtivo. O Nuxt é pré configurado para fazer isso sem que o desenvolvedor perceba, simplificando o
+seu trabalho.
 
-Quando uma aplicação Vue.js carrega no servidor, o processo leva um pouco mais de tempo na primeira
-vez se comparado aos posteriores recarregamentos que sobem somente as mudanças feitas. Isso acontece,
+Quando uma aplicação Vue.js é carregada no servidor, o processo leva um pouco mais de tempo na primeira
+vez se comparado aos posteriores recarregamentos que sobem somente as mudanças feitas. Isso acontece
 porque toda a aplicação é carregada ao mesmo tempo nesta ocasião. No caso do Nuxt, só o HTML e o CSS
-são pré carregados por padrão. O javascript é carregado por demanda, e isso permite que o carregamento
+são pré-carregados por padrão. O javascript é carregado por demanda, e isso permite que o carregamento
 das páginas ocorra de maneira mais rápida.
 
-Para acabar, vale falar um pouco de duas características deste framework:
+Para finalizar, vale mencionar duas características deste framework:
 \begin{itemize}
     \item Ao contrário de seu predecessor, Nuxt é mais fácil de configurar, e permite que as configurações
     padrão sejam sobrescritas com menos trabalho.
@@ -416,8 +416,8 @@ Para acabar, vale falar um pouco de duas características deste framework:
 motivo pelo qual alguns acreditam que seja uma biblioteca exclusiva do React (framework javascript também
 desenvolvida pelo Facebook), o que não é verdade.
 
-É uma ferramenta performática, e parte deste bom desempenho se deve ao fato de que cada teste ser rodado
-num processo distinto rodando em paralelo com os demais. Isso é possível, pois cada teste tem o seu
+É uma ferramenta com um ótimo desempenho de execução, e isto se deve parcialmente ao fato de que cada teste
+é rodado num processo distinto rodando em paralelo com os demais. Isso é possível, pois cada teste tem o seu
 \say{contexto global} garantindo independência entre cada um. Para aumentar ainda mais a performance, testes
 que falharam são executados primeiro. Além disso, os testes são organizados baseado no tempo necessário a
 executá-los.
@@ -449,11 +449,11 @@ Outras características bem interessantes do Jest:
 
 Na sesão \ref{sec:goals}, falou-se da importância de um código limpo. Aqui tratar-se-á de como produzir código
 de qualidade. Para isso foi trazido uma publicação de \cite{BP} que cita práticas que enriquecem a qualidade do
-código. Aqui citarei os pontos mais importantes.
+código. Aqui são mencionados os pontos mais importantes.
 
 \subsection{SOLID}\label{subsec:solid}
 
-SOLID é uma sigla formada pelo título de cada um dos 5 princípios componentes.
+SOLID é uma sigla formada pelo título de cada um dos 5 princípios.
 \begin{description}
     \item[S] Single Responsibility Principle \dir Cada classe ou função deve ter uma responsabilidade única no
     sistema -- O importante é que classes e funções tenham uma tarefa
@@ -475,7 +475,8 @@ SOLID é uma sigla formada pelo título de cada um dos 5 princípios componentes
 \subsection{Outras recomendações}\label{subsec:recomendacoes}
 
 Além desses preceitos, há outros pilares a levar em conta, e quando seguidos, melhoram e muito a qualidade do
-código. Eis alguns desses presentes no texto de \cite{BP}
+código.
+Eis alguns desses presentes no texto de \cite{BP}
 \begin{itemize}
     \item Use nome de variáveis que tenham significado e que sejam fáceis de pronunciar. Nomes como \texttt{\kw{i}},
     \texttt{\kw{x}} e \texttt{\kw{item}} são contra exemplos fortíssimos.
@@ -486,6 +487,7 @@ código. Eis alguns desses presentes no texto de \cite{BP}
     \item Evite código duplicado.
 \end{itemize}
 
-Há outros mais, e vale dizer que muitos desses pilares estão mencionados no texto de \cite{CCL}, como o que se refere
-a nomes de variáveis. Como já foi dito antes, dada a multiplicidade de diretrizes, não é trivial que todas sejam
-seguidas. O importante é ter uma ampla noção o que é um código de qualidade
+Há outros mais, e vale dizer que muitos desses pilares estão mencionados no texto de \cite{CCL}, como o que
+se refere a nomes de variáveis.
+Como já foi dito antes, dada a multiplicidade de diretrizes, não é trivial que todas sejam seguidas.
+O importante é ter uma ampla noção sobre o que é um código de qualidade.
